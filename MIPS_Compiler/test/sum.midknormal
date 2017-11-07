@@ -1,0 +1,85 @@
+LetRec
+[ sum :
+  FUN
+  (
+    INT
+  )
+    INT
+]
+(
+  [ x :
+    INT
+  ]
+)
+{
+  Let
+  (
+    INT
+  )
+  {
+    Int 0
+  }
+  IN
+  {
+    IfLE x Ti3
+      Int 0
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 1
+          }
+          IN
+          {
+            Sub x Ti4
+          }
+        }
+        IN
+        {
+          App sum
+            Ti5
+        }
+      }
+      IN
+      {
+        Add Ti6 x
+      }
+  }
+}
+In
+{
+  Let
+  (
+    INT
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 10000
+    }
+    IN
+    {
+      App sum
+        Ti1
+    }
+  }
+  IN
+  {
+    ExtFunApp print_int
+    Ti2
+  }
+}

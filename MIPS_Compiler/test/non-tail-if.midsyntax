@@ -1,0 +1,41 @@
+LET x
+  APP
+    VAR truncate
+    FLOAT 1.230000
+IN
+  LET y
+    APP
+      VAR truncate
+      FLOAT 4.560000
+  IN
+    LET z
+      APP
+        VAR truncate
+        FNEG
+          FLOAT 7.890000
+    IN
+      APP
+        VAR print_int
+        ADD
+          ADD
+            IF
+              NOT
+                LE
+                  INT 0
+                  VAR z
+              VAR y
+              VAR x
+            IF
+              NOT
+                LE
+                  VAR x
+                  INT 0
+              VAR z
+              VAR y
+          IF
+            NOT
+              LE
+                INT 0
+                VAR y
+            VAR x
+            VAR z

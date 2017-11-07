@@ -1,0 +1,152 @@
+Let
+(
+  INT
+)
+{
+  Int 42
+}
+IN
+{
+  LetRec
+  [ f :
+    FUN
+    (
+      INT
+      INT
+      INT
+      INT
+      INT
+    )
+      UNIT
+  ]
+  (
+    [ y1 :
+      INT
+    ]
+    [ y2 :
+      INT
+    ]
+    [ y3 :
+      INT
+    ]
+    [ y4 :
+      INT
+    ]
+    [ y5 :
+      INT
+    ]
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Add x y1
+            }
+            IN
+            {
+              Add Ti6 y2
+            }
+          }
+          IN
+          {
+            Add Ti7 y3
+          }
+        }
+        IN
+        {
+          Add Ti8 y4
+        }
+      }
+      IN
+      {
+        Add Ti9 y5
+      }
+    }
+    IN
+    {
+      ExtFunApp print_int
+      Ti10
+    }
+  }
+  In
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 1
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 2
+      }
+      IN
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 3
+        }
+        IN
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 4
+          }
+          IN
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 5
+            }
+            IN
+            {
+              App f
+                Ti1
+                Ti2
+                Ti3
+                Ti4
+                Ti5
+            }
+          }
+        }
+      }
+    }
+  }
+}

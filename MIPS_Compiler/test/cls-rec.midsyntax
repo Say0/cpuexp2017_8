@@ -1,0 +1,22 @@
+LET x
+  INT 10
+IN
+  LET REC f y
+    IF
+      EQ
+        VAR y
+        INT 0
+      INT 0
+      ADD
+        VAR x
+        APP
+          VAR f
+          SUB
+            VAR y
+            INT 1
+  IN
+    APP
+      VAR print_int
+      APP
+        VAR f
+        INT 123

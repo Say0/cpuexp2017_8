@@ -1,0 +1,29 @@
+LET REC gcd m n
+  IF
+    EQ
+      VAR m
+      INT 0
+    VAR n
+    IF
+      LE
+        VAR m
+        VAR n
+      APP
+        VAR gcd
+        VAR m
+        SUB
+          VAR n
+          VAR m
+      APP
+        VAR gcd
+        VAR n
+        SUB
+          VAR m
+          VAR n
+IN
+  APP
+    VAR print_int
+    APP
+      VAR gcd
+      INT 21600
+      INT 337500

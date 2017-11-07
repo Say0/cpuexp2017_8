@@ -1,0 +1,29 @@
+LET REC f Tu1
+  INT 12345
+IN
+  LET y
+    ARRAY
+      INT 10
+      INT 3
+  IN
+    LET x
+      INT 67890
+    IN
+      APP
+        VAR print_int
+        IF
+          EQ
+            GET
+              VAR y
+              INT 0
+            INT 3
+          ADD
+            ADD
+              APP
+                VAR f
+                UNIT
+              GET
+                VAR y
+                INT 1
+            VAR x
+          INT 7

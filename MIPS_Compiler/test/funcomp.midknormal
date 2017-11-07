@@ -1,0 +1,206 @@
+LetRec
+[ compose :
+  FUN
+  (
+    FUN
+    (
+      INT
+    )
+      INT
+    FUN
+    (
+      INT
+    )
+      INT
+  )
+    FUN
+    (
+      INT
+    )
+      INT
+]
+(
+  [ f :
+    FUN
+    (
+      INT
+    )
+      INT
+  ]
+  [ g :
+    FUN
+    (
+      INT
+    )
+      INT
+  ]
+)
+{
+  LetRec
+  [ composed :
+    FUN
+    (
+      INT
+    )
+      INT
+  ]
+  (
+    [ x :
+      INT
+    ]
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      App f
+        x
+    }
+    IN
+    {
+      App g
+        Ti6
+    }
+  }
+  In
+  {
+     Var composed
+  }
+}
+In
+{
+  LetRec
+  [ dbl :
+    FUN
+    (
+      INT
+    )
+      INT
+  ]
+  (
+    [ x :
+      INT
+    ]
+  )
+  {
+    Add x x
+  }
+  In
+  {
+    LetRec
+    [ inc :
+      FUN
+      (
+        INT
+      )
+        INT
+    ]
+    (
+      [ x :
+        INT
+      ]
+    )
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 1
+      }
+      IN
+      {
+        Add x Ti5
+      }
+    }
+    In
+    {
+      LetRec
+      [ dec :
+        FUN
+        (
+          INT
+        )
+          INT
+      ]
+      (
+        [ x :
+          INT
+        ]
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 1
+        }
+        IN
+        {
+          Sub x Ti4
+        }
+      }
+      In
+      {
+        Let
+        (
+          FUN
+          (
+            INT
+          )
+            INT
+        )
+        {
+          Let
+          (
+            FUN
+            (
+              INT
+            )
+              INT
+          )
+          {
+            App compose
+              dbl
+              dec
+          }
+          IN
+          {
+            App compose
+              inc
+              Tf1
+          }
+        }
+        IN
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 123
+            }
+            IN
+            {
+              App h
+                Ti2
+            }
+          }
+          IN
+          {
+            ExtFunApp print_int
+            Ti3
+          }
+        }
+      }
+    }
+  }
+}

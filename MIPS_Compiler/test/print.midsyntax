@@ -1,0 +1,16 @@
+LET Tu2
+  APP
+    VAR print_int
+    INT 123
+IN
+  LET Tu1
+    APP
+      VAR print_int
+      NEG
+        INT 456
+  IN
+    APP
+      VAR print_int
+      ADD
+        INT 789
+        INT 0

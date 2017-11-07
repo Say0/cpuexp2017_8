@@ -1,0 +1,126 @@
+LetRec
+[ f :
+  FUN
+  (
+    INT
+  )
+    UNIT
+]
+(
+  [ n :
+    INT
+  ]
+)
+{
+  Let
+  (
+    INT
+  )
+  {
+    Int 0
+  }
+  IN
+  {
+    IfLE Ti3 n
+      Let
+      (
+        UNIT
+      )
+      {
+        ExtFunApp print_int
+        n
+      }
+      IN
+      {
+        Let
+        (
+          ARRAY
+            FUN
+            (
+              INT
+            )
+              UNIT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 1
+          }
+          IN
+          {
+            ExtFunApp create_array
+            Ti4
+            f
+          }
+        }
+        IN
+        {
+          Let
+          (
+            FUN
+            (
+              INT
+            )
+              UNIT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 0
+            }
+            IN
+            {
+              Get a Ti5
+            }
+          }
+          IN
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Int 1
+              }
+              IN
+              {
+                Sub n Ti7
+              }
+            }
+            IN
+            {
+              App Tf6
+                Ti8
+            }
+          }
+        }
+      }
+      Unit
+  }
+}
+In
+{
+  Let
+  (
+    INT
+  )
+  {
+    Int 9
+  }
+  IN
+  {
+    App f
+      Ti2
+  }
+}

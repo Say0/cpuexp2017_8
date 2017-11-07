@@ -1,0 +1,46 @@
+LET REC inprod v1 v2 acc i
+  IF
+    NOT
+      LE
+        INT 0
+        VAR i
+    VAR acc
+    APP
+      VAR inprod
+      VAR v1
+      VAR v2
+      FADD
+        VAR acc
+        FMUL
+          GET
+            VAR v1
+            VAR i
+          GET
+            VAR v2
+            VAR i
+      SUB
+        VAR i
+        INT 1
+IN
+  LET v1
+    ARRAY
+      INT 3
+      FLOAT 1.230000
+  IN
+    LET v2
+      ARRAY
+        INT 3
+        FLOAT 4.560000
+    IN
+      APP
+        VAR print_int
+        APP
+          VAR truncate
+          FMUL
+            FLOAT 1000000.000000
+            APP
+              VAR inprod
+              VAR v1
+              VAR v2
+              FLOAT 0.000000
+              INT 2

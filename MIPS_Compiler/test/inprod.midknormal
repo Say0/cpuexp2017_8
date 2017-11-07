@@ -1,0 +1,422 @@
+LetRec
+[ getx :
+  FUN
+  (
+    TUPLE
+    (
+      FLOAT
+      FLOAT
+      FLOAT
+    )
+  )
+    FLOAT
+]
+(
+  [ v :
+    TUPLE
+    (
+      FLOAT
+      FLOAT
+      FLOAT
+    )
+  ]
+)
+{
+  LetTuple
+  (
+  [ x :
+    FLOAT
+  ]
+  [ y :
+    FLOAT
+  ]
+  [ z :
+    FLOAT
+  ]
+  )
+    v
+  {
+     Var x
+  }
+}
+In
+{
+  LetRec
+  [ gety :
+    FUN
+    (
+      TUPLE
+      (
+        FLOAT
+        FLOAT
+        FLOAT
+      )
+    )
+      FLOAT
+  ]
+  (
+    [ v :
+      TUPLE
+      (
+        FLOAT
+        FLOAT
+        FLOAT
+      )
+    ]
+  )
+  {
+    LetTuple
+    (
+    [ x :
+      FLOAT
+    ]
+    [ y :
+      FLOAT
+    ]
+    [ z :
+      FLOAT
+    ]
+    )
+      v
+    {
+       Var y
+    }
+  }
+  In
+  {
+    LetRec
+    [ getz :
+      FUN
+      (
+        TUPLE
+        (
+          FLOAT
+          FLOAT
+          FLOAT
+        )
+      )
+        FLOAT
+    ]
+    (
+      [ v :
+        TUPLE
+        (
+          FLOAT
+          FLOAT
+          FLOAT
+        )
+      ]
+    )
+    {
+      LetTuple
+      (
+      [ x :
+        FLOAT
+      ]
+      [ y :
+        FLOAT
+      ]
+      [ z :
+        FLOAT
+      ]
+      )
+        v
+      {
+         Var z
+      }
+    }
+    In
+    {
+      LetRec
+      [ inprod :
+        FUN
+        (
+          TUPLE
+          (
+            FLOAT
+            FLOAT
+            FLOAT
+          )
+          TUPLE
+          (
+            FLOAT
+            FLOAT
+            FLOAT
+          )
+        )
+          FLOAT
+      ]
+      (
+        [ v1 :
+          TUPLE
+          (
+            FLOAT
+            FLOAT
+            FLOAT
+          )
+        ]
+        [ v2 :
+          TUPLE
+          (
+            FLOAT
+            FLOAT
+            FLOAT
+          )
+        ]
+      )
+      {
+        Let
+        (
+          FLOAT
+        )
+        {
+          Let
+          (
+            FLOAT
+          )
+          {
+            Let
+            (
+              FLOAT
+            )
+            {
+              App getx
+                v1
+            }
+            IN
+            {
+              Let
+              (
+                FLOAT
+              )
+              {
+                App getx
+                  v2
+              }
+              IN
+              {
+                FMul Td13 Td14
+              }
+            }
+          }
+          IN
+          {
+            Let
+            (
+              FLOAT
+            )
+            {
+              Let
+              (
+                FLOAT
+              )
+              {
+                App gety
+                  v1
+              }
+              IN
+              {
+                Let
+                (
+                  FLOAT
+                )
+                {
+                  App gety
+                    v2
+                }
+                IN
+                {
+                  FMul Td16 Td17
+                }
+              }
+            }
+            IN
+            {
+              FAdd Td15 Td18
+            }
+          }
+        }
+        IN
+        {
+          Let
+          (
+            FLOAT
+          )
+          {
+            Let
+            (
+              FLOAT
+            )
+            {
+              App getz
+                v1
+            }
+            IN
+            {
+              Let
+              (
+                FLOAT
+              )
+              {
+                App getz
+                  v2
+              }
+              IN
+              {
+                FMul Td20 Td21
+              }
+            }
+          }
+          IN
+          {
+            FAdd Td19 Td22
+          }
+        }
+      }
+      In
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            FLOAT
+          )
+          {
+            Let
+            (
+              FLOAT
+            )
+            {
+              Float 1000000.000000
+            }
+            IN
+            {
+              Let
+              (
+                FLOAT
+              )
+              {
+                Let
+                (
+                  TUPLE
+                  (
+                    FLOAT
+                    FLOAT
+                    FLOAT
+                  )
+                )
+                {
+                  Let
+                  (
+                    FLOAT
+                  )
+                  {
+                    Float 1.000000
+                  }
+                  IN
+                  {
+                    Let
+                    (
+                      FLOAT
+                    )
+                    {
+                      Float 2.000000
+                    }
+                    IN
+                    {
+                      Let
+                      (
+                        FLOAT
+                      )
+                      {
+                        Float 3.000000
+                      }
+                      IN
+                      {
+                        Tuple
+                          Td2
+                          Td3
+                          Td4
+                      }
+                    }
+                  }
+                }
+                IN
+                {
+                  Let
+                  (
+                    TUPLE
+                    (
+                      FLOAT
+                      FLOAT
+                      FLOAT
+                    )
+                  )
+                  {
+                    Let
+                    (
+                      FLOAT
+                    )
+                    {
+                      Float 4.000000
+                    }
+                    IN
+                    {
+                      Let
+                      (
+                        FLOAT
+                      )
+                      {
+                        Float 5.000000
+                      }
+                      IN
+                      {
+                        Let
+                        (
+                          FLOAT
+                        )
+                        {
+                          Float 6.000000
+                        }
+                        IN
+                        {
+                          Tuple
+                            Td6
+                            Td7
+                            Td8
+                        }
+                      }
+                    }
+                  }
+                  IN
+                  {
+                    App inprod
+                      Tt5
+                      Tt9
+                  }
+                }
+              }
+              IN
+              {
+                FMul Td1 Td10
+              }
+            }
+          }
+          IN
+          {
+            ExtFunApp truncate
+            Td11
+          }
+        }
+        IN
+        {
+          ExtFunApp print_int
+          Ti12
+        }
+      }
+    }
+  }
+}

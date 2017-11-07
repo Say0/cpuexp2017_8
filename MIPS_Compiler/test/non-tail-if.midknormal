@@ -1,0 +1,161 @@
+Let
+(
+  INT
+)
+{
+  Let
+  (
+    FLOAT
+  )
+  {
+    Float 1.230000
+  }
+  IN
+  {
+    ExtFunApp truncate
+    Td1
+  }
+}
+IN
+{
+  Let
+  (
+    INT
+  )
+  {
+    Let
+    (
+      FLOAT
+    )
+    {
+      Float 4.560000
+    }
+    IN
+    {
+      ExtFunApp truncate
+      Td2
+    }
+  }
+  IN
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Let
+      (
+        FLOAT
+      )
+      {
+        Let
+        (
+          FLOAT
+        )
+        {
+          Float 7.890000
+        }
+        IN
+        {
+          FNeg Td3
+        }
+      }
+      IN
+      {
+        ExtFunApp truncate
+        Td4
+      }
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 0
+            }
+            IN
+            {
+              IfLE Ti5 z
+                 Var x
+                 Var y
+            }
+          }
+          IN
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Int 0
+              }
+              IN
+              {
+                IfLE x Ti7
+                   Var y
+                   Var z
+              }
+            }
+            IN
+            {
+              Add Ti6 Ti8
+            }
+          }
+        }
+        IN
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 0
+            }
+            IN
+            {
+              IfLE Ti10 y
+                 Var z
+                 Var x
+            }
+          }
+          IN
+          {
+            Add Ti9 Ti11
+          }
+        }
+      }
+      IN
+      {
+        ExtFunApp print_int
+        Ti12
+      }
+    }
+  }
+}

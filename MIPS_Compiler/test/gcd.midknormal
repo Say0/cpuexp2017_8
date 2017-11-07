@@ -1,0 +1,95 @@
+LetRec
+[ gcd :
+  FUN
+  (
+    INT
+    INT
+  )
+    INT
+]
+(
+  [ m :
+    INT
+  ]
+  [ n :
+    INT
+  ]
+)
+{
+  Let
+  (
+    INT
+  )
+  {
+    Int 0
+  }
+  IN
+  {
+    IfEq m Ti4
+       Var n
+      IfLE m n
+        Let
+        (
+          INT
+        )
+        {
+          Sub n m
+        }
+        IN
+        {
+          App gcd
+            m
+            Ti5
+        }
+        Let
+        (
+          INT
+        )
+        {
+          Sub m n
+        }
+        IN
+        {
+          App gcd
+            n
+            Ti6
+        }
+  }
+}
+In
+{
+  Let
+  (
+    INT
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 21600
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 337500
+      }
+      IN
+      {
+        App gcd
+          Ti1
+          Ti2
+      }
+    }
+  }
+  IN
+  {
+    ExtFunApp print_int
+    Ti3
+  }
+}

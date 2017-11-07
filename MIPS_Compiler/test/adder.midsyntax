@@ -1,0 +1,15 @@
+LET REC make_adder x
+  LET REC adder y
+    ADD
+      VAR x
+      VAR y
+  IN
+    VAR adder
+IN
+  APP
+    VAR print_int
+    APP
+      APP
+        VAR make_adder
+        INT 3
+      INT 7

@@ -1,0 +1,157 @@
+LetRec
+[ f :
+  FUN
+  (
+    UNIT
+  )
+    INT
+]
+(
+  [ Tu1 :
+    UNIT
+  ]
+)
+{
+  Int 12345
+}
+In
+{
+  Let
+  (
+    ARRAY
+      INT
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 10
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 3
+      }
+      IN
+      {
+        ExtFunApp create_array
+        Ti2
+        Ti3
+      }
+    }
+  }
+  IN
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 67890
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 0
+          }
+          IN
+          {
+            Get y Ti4
+          }
+        }
+        IN
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 3
+          }
+          IN
+          {
+            IfEq Ti5 Ti6
+              Let
+              (
+                INT
+              )
+              {
+                Let
+                (
+                  INT
+                )
+                {
+                  Let
+                  (
+                    UNIT
+                  )
+                  {
+                    Unit
+                  }
+                  IN
+                  {
+                    App f
+                      Tu7
+                  }
+                }
+                IN
+                {
+                  Let
+                  (
+                    INT
+                  )
+                  {
+                    Let
+                    (
+                      INT
+                    )
+                    {
+                      Int 1
+                    }
+                    IN
+                    {
+                      Get y Ti9
+                    }
+                  }
+                  IN
+                  {
+                    Add Ti8 Ti10
+                  }
+                }
+              }
+              IN
+              {
+                Add Ti11 x
+              }
+              Int 7
+          }
+        }
+      }
+      IN
+      {
+        ExtFunApp print_int
+        Ti12
+      }
+    }
+  }
+}

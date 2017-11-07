@@ -1,0 +1,266 @@
+LET REC f a b c d
+  LET e
+    ADD
+      VAR a
+      VAR b
+  IN
+    LET f
+      ADD
+        VAR a
+        VAR c
+    IN
+      LET g
+        ADD
+          VAR a
+          VAR d
+      IN
+        LET h
+          ADD
+            VAR b
+            VAR c
+        IN
+          LET i
+            ADD
+              VAR b
+              VAR d
+          IN
+            LET j
+              ADD
+                VAR c
+                VAR d
+            IN
+              LET k
+                ADD
+                  VAR e
+                  VAR f
+              IN
+                LET l
+                  ADD
+                    VAR e
+                    VAR g
+                IN
+                  LET m
+                    ADD
+                      VAR e
+                      VAR h
+                  IN
+                    LET n
+                      ADD
+                        VAR e
+                        VAR i
+                    IN
+                      LET o
+                        ADD
+                          VAR e
+                          VAR j
+                      IN
+                        LET p
+                          ADD
+                            VAR f
+                            VAR g
+                        IN
+                          LET q
+                            ADD
+                              VAR f
+                              VAR h
+                          IN
+                            LET r
+                              ADD
+                                VAR f
+                                VAR i
+                            IN
+                              LET s
+                                ADD
+                                  VAR f
+                                  VAR j
+                              IN
+                                LET t
+                                  ADD
+                                    VAR g
+                                    VAR h
+                                IN
+                                  LET u
+                                    ADD
+                                      VAR g
+                                      VAR i
+                                  IN
+                                    LET v
+                                      ADD
+                                        VAR g
+                                        VAR j
+                                    IN
+                                      LET w
+                                        ADD
+                                          VAR h
+                                          VAR i
+                                      IN
+                                        LET x
+                                          ADD
+                                            VAR h
+                                            VAR j
+                                        IN
+                                          LET y
+                                            ADD
+                                              VAR i
+                                              VAR j
+                                          IN
+                                            LET aa
+                                              ADD
+                                                VAR k
+                                                VAR l
+                                            IN
+                                              LET ab
+                                                ADD
+                                                  VAR k
+                                                  VAR m
+                                              IN
+                                                LET ac
+                                                  ADD
+                                                    VAR k
+                                                    VAR n
+                                                IN
+                                                  LET ad
+                                                    ADD
+                                                      VAR k
+                                                      VAR o
+                                                  IN
+                                                    LET ae
+                                                      ADD
+                                                        VAR k
+                                                        VAR p
+                                                    IN
+                                                      LET af
+                                                        ADD
+                                                          VAR k
+                                                          VAR q
+                                                      IN
+                                                        LET ag
+                                                          ADD
+                                                            VAR k
+                                                            VAR r
+                                                        IN
+                                                          LET ah
+                                                            ADD
+                                                              VAR k
+                                                              VAR s
+                                                          IN
+                                                            LET ai
+                                                              ADD
+                                                                VAR k
+                                                                VAR t
+                                                            IN
+                                                              LET aj
+                                                                ADD
+                                                                  VAR k
+                                                                  VAR u
+                                                              IN
+                                                                LET ak
+                                                                  ADD
+                                                                    VAR k
+                                                                    VAR v
+                                                                IN
+                                                                  LET al
+                                                                    ADD
+                                                                      VAR k
+                                                                      VAR w
+                                                                  IN
+                                                                    LET am
+                                                                      ADD
+                                                                        VAR k
+                                                                        VAR x
+                                                                    IN
+                                                                      LET an
+                                                                        ADD
+                                                                          VAR k
+                                                                          VAR y
+                                                                      IN
+                                                                        LET z
+                                                                          ADD
+                                                                            ADD
+                                                                              ADD
+                                                                                ADD
+                                                                                  ADD
+                                                                                    ADD
+                                                                                      ADD
+                                                                                        ADD
+                                                                                          ADD
+                                                                                            ADD
+                                                                                              ADD
+                                                                                                ADD
+                                                                                                  ADD
+                                                                                                    ADD
+                                                                                                      ADD
+                                                                                                        ADD
+                                                                                                          ADD
+                                                                                                            ADD
+                                                                                                              ADD
+                                                                                                                ADD
+                                                                                                                  ADD
+                                                                                                                    ADD
+                                                                                                                      ADD
+                                                                                                                        ADD
+                                                                                                                          ADD
+                                                                                                                            ADD
+                                                                                                                              ADD
+                                                                                                                                ADD
+                                                                                                                                  ADD
+                                                                                                                                    ADD
+                                                                                                                                      ADD
+                                                                                                                                        ADD
+                                                                                                                                          ADD
+                                                                                                                                            ADD
+                                                                                                                                              ADD
+                                                                                                                                                ADD
+                                                                                                                                                  ADD
+                                                                                                                                                    ADD
+                                                                                                                                                      VAR a
+                                                                                                                                                      VAR b
+                                                                                                                                                    VAR c
+                                                                                                                                                  VAR d
+                                                                                                                                                VAR e
+                                                                                                                                              VAR f
+                                                                                                                                            VAR g
+                                                                                                                                          VAR h
+                                                                                                                                        VAR i
+                                                                                                                                      VAR j
+                                                                                                                                    VAR k
+                                                                                                                                  VAR l
+                                                                                                                                VAR m
+                                                                                                                              VAR n
+                                                                                                                            VAR o
+                                                                                                                          VAR p
+                                                                                                                        VAR q
+                                                                                                                      VAR r
+                                                                                                                    VAR s
+                                                                                                                  VAR t
+                                                                                                                VAR u
+                                                                                                              VAR v
+                                                                                                            VAR w
+                                                                                                          VAR x
+                                                                                                        VAR y
+                                                                                                      VAR aa
+                                                                                                    VAR ab
+                                                                                                  VAR ac
+                                                                                                VAR ad
+                                                                                              VAR ae
+                                                                                            VAR af
+                                                                                          VAR ag
+                                                                                        VAR ah
+                                                                                      VAR ai
+                                                                                    VAR aj
+                                                                                  VAR ak
+                                                                                VAR al
+                                                                              VAR am
+                                                                            VAR an
+                                                                        IN
+                                                                          NEG
+                                                                            VAR z
+IN
+  APP
+    VAR print_int
+    APP
+      VAR f
+      INT 1
+      INT 2
+      INT 3
+      INT 4

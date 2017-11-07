@@ -1,0 +1,15 @@
+LET REC f x
+  ADD
+    VAR x
+    INT 123
+IN
+  LET REC g y
+    VAR f
+  IN
+    APP
+      VAR print_int
+      APP
+        APP
+          VAR g
+          INT 456
+        INT 789

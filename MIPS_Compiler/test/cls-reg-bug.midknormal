@@ -1,0 +1,388 @@
+LetRec
+[ h :
+  FUN
+  (
+    TUPLE
+    (
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+    )
+  )
+    INT
+]
+(
+  [ p :
+    TUPLE
+    (
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+    )
+  ]
+)
+{
+  LetTuple
+  (
+  [ v1 :
+    INT
+  ]
+  [ v2 :
+    INT
+  ]
+  [ v3 :
+    INT
+  ]
+  [ v4 :
+    INT
+  ]
+  [ v5 :
+    INT
+  ]
+  [ v6 :
+    INT
+  ]
+  [ v7 :
+    INT
+  ]
+  [ v8 :
+    INT
+  ]
+  [ v9 :
+    INT
+  ]
+  [ v10 :
+    INT
+  ]
+  )
+    p
+  {
+    LetRec
+    [ g :
+      FUN
+      (
+        INT
+      )
+        INT
+    ]
+    (
+      [ z :
+        INT
+      ]
+    )
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Let
+                (
+                  INT
+                )
+                {
+                  Let
+                  (
+                    INT
+                  )
+                  {
+                    Let
+                    (
+                      INT
+                    )
+                    {
+                      Let
+                      (
+                        INT
+                      )
+                      {
+                        Add v1 v2
+                      }
+                      IN
+                      {
+                        Add Ti16 v3
+                      }
+                    }
+                    IN
+                    {
+                      Add Ti17 v4
+                    }
+                  }
+                  IN
+                  {
+                    Add Ti18 v5
+                  }
+                }
+                IN
+                {
+                  Add Ti19 v6
+                }
+              }
+              IN
+              {
+                Add Ti20 v7
+              }
+            }
+            IN
+            {
+              Add Ti21 v8
+            }
+          }
+          IN
+          {
+            Add Ti22 v9
+          }
+        }
+        IN
+        {
+          Add Ti23 v10
+        }
+      }
+      IN
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 0
+        }
+        IN
+        {
+          IfLE z Ti24
+            Let
+            (
+              INT
+            )
+            {
+               Neg z
+            }
+            IN
+            {
+              App g
+                Ti25
+            }
+             Var r
+        }
+      }
+    }
+    In
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 1
+      }
+      IN
+      {
+        App g
+          Ti15
+      }
+    }
+  }
+}
+In
+{
+  Let
+  (
+    UNIT
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Let
+      (
+        TUPLE
+        (
+          INT
+          INT
+          INT
+          INT
+          INT
+          INT
+          INT
+          INT
+          INT
+          INT
+        )
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 1
+        }
+        IN
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 2
+          }
+          IN
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 3
+            }
+            IN
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Int 4
+              }
+              IN
+              {
+                Let
+                (
+                  INT
+                )
+                {
+                  Int 5
+                }
+                IN
+                {
+                  Let
+                  (
+                    INT
+                  )
+                  {
+                    Int 6
+                  }
+                  IN
+                  {
+                    Let
+                    (
+                      INT
+                    )
+                    {
+                      Int 7
+                    }
+                    IN
+                    {
+                      Let
+                      (
+                        INT
+                      )
+                      {
+                        Int 8
+                      }
+                      IN
+                      {
+                        Let
+                        (
+                          INT
+                        )
+                        {
+                          Int 9
+                        }
+                        IN
+                        {
+                          Let
+                          (
+                            INT
+                          )
+                          {
+                            Int 10
+                          }
+                          IN
+                          {
+                            Tuple
+                              Ti2
+                              Ti3
+                              Ti4
+                              Ti5
+                              Ti6
+                              Ti7
+                              Ti8
+                              Ti9
+                              Ti10
+                              Ti11
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      IN
+      {
+        App h
+          Tt12
+      }
+    }
+    IN
+    {
+      ExtFunApp print_int
+      Ti13
+    }
+  }
+  IN
+  {
+    Let
+    (
+      UNIT
+    )
+    {
+      Unit
+    }
+    IN
+    {
+      ExtFunApp print_newline
+      Tu14
+    }
+  }
+}

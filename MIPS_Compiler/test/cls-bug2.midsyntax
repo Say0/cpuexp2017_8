@@ -1,0 +1,28 @@
+LET REC f n
+  IF
+    NOT
+      LE
+        INT 0
+        VAR n
+    UNIT
+    LET Tu1
+      APP
+        VAR print_int
+        VAR n
+    IN
+      LET a
+        ARRAY
+          INT 1
+          VAR f
+      IN
+        APP
+          GET
+            VAR a
+            INT 0
+          SUB
+            VAR n
+            INT 1
+IN
+  APP
+    VAR f
+    INT 9

@@ -1,0 +1,25 @@
+LET x
+  INT 42
+IN
+  LET REC f y1 y2 y3 y4 y5
+    APP
+      VAR print_int
+      ADD
+        ADD
+          ADD
+            ADD
+              ADD
+                VAR x
+                VAR y1
+              VAR y2
+            VAR y3
+          VAR y4
+        VAR y5
+  IN
+    APP
+      VAR f
+      INT 1
+      INT 2
+      INT 3
+      INT 4
+      INT 5

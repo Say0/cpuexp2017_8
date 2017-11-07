@@ -1,0 +1,6 @@
+*.cmo
+*.cmi
+.*_DS_Store
+.DS_Store
+.*DS_Store
+._*

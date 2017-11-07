@@ -1,0 +1,145 @@
+LET REC f Tu1
+  INT 12345
+IN
+  LET REC g y
+    ADD
+      VAR y
+      INT 1
+  IN
+    LET z
+      ARRAY
+        INT 10
+        INT 1
+    IN
+      LET x
+        APP
+          VAR f
+          UNIT
+      IN
+        LET y
+          INT 67890
+        IN
+          LET z0
+            GET
+              VAR z
+              INT 0
+          IN
+            LET z1
+              ADD
+                VAR z0
+                VAR z0
+            IN
+              LET z2
+                ADD
+                  VAR z1
+                  VAR z1
+              IN
+                LET z3
+                  ADD
+                    VAR z2
+                    VAR z2
+                IN
+                  LET z4
+                    ADD
+                      VAR z3
+                      VAR z3
+                  IN
+                    LET z5
+                      ADD
+                        VAR z4
+                        VAR z4
+                    IN
+                      LET z6
+                        ADD
+                          VAR z5
+                          VAR z5
+                      IN
+                        LET z7
+                          ADD
+                            VAR z6
+                            VAR z6
+                        IN
+                          LET z8
+                            ADD
+                              VAR z7
+                              VAR z7
+                          IN
+                            LET z9
+                              ADD
+                                VAR z8
+                                VAR z8
+                            IN
+                              LET z10
+                                ADD
+                                  VAR z9
+                                  VAR z9
+                              IN
+                                LET z11
+                                  ADD
+                                    VAR z10
+                                    VAR z10
+                                IN
+                                  LET z12
+                                    ADD
+                                      VAR z11
+                                      VAR z11
+                                  IN
+                                    LET z13
+                                      ADD
+                                        VAR z12
+                                        VAR z12
+                                    IN
+                                      LET z14
+                                        ADD
+                                          VAR z13
+                                          VAR z13
+                                      IN
+                                        LET z15
+                                          ADD
+                                            VAR z14
+                                            VAR z14
+                                        IN
+                                          APP
+                                            VAR print_int
+                                            IF
+                                              EQ
+                                                GET
+                                                  VAR z
+                                                  INT 1
+                                                INT 0
+                                              APP
+                                                VAR g
+                                                VAR y
+                                              ADD
+                                                ADD
+                                                  ADD
+                                                    ADD
+                                                      ADD
+                                                        ADD
+                                                          ADD
+                                                            ADD
+                                                              ADD
+                                                                ADD
+                                                                  ADD
+                                                                    ADD
+                                                                      ADD
+                                                                        ADD
+                                                                          ADD
+                                                                            ADD
+                                                                              VAR z0
+                                                                              VAR z1
+                                                                            VAR z2
+                                                                          VAR z3
+                                                                        VAR z4
+                                                                      VAR z5
+                                                                    VAR z6
+                                                                  VAR z7
+                                                                VAR z8
+                                                              VAR z9
+                                                            VAR z10
+                                                          VAR z11
+                                                        VAR z12
+                                                      VAR z13
+                                                    VAR z14
+                                                  VAR z15
+                                                VAR x

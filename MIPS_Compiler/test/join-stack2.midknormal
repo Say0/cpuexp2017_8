@@ -1,0 +1,114 @@
+LetRec
+[ f :
+  FUN
+  (
+    UNIT
+  )
+    INT
+]
+(
+  [ Tu1 :
+    UNIT
+  ]
+)
+{
+  Int 123
+}
+In
+{
+  LetRec
+  [ g :
+    FUN
+    (
+      UNIT
+    )
+      INT
+  ]
+  (
+    [ Tu2 :
+      UNIT
+    ]
+  )
+  {
+    Int 456
+  }
+  In
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Let
+      (
+        UNIT
+      )
+      {
+        Unit
+      }
+      IN
+      {
+        App f
+          Tu3
+      }
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 0
+          }
+          IN
+          {
+            IfLE x Ti4
+              Let
+              (
+                INT
+              )
+              {
+                Let
+                (
+                  UNIT
+                )
+                {
+                  Unit
+                }
+                IN
+                {
+                  App g
+                    Tu5
+                }
+              }
+              IN
+              {
+                Add Ti6 x
+              }
+               Var x
+          }
+        }
+        IN
+        {
+          Add Ti7 x
+        }
+      }
+      IN
+      {
+        ExtFunApp print_int
+        Ti8
+      }
+    }
+  }
+}

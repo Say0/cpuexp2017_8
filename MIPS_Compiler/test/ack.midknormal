@@ -1,0 +1,177 @@
+LetRec
+[ ack :
+  FUN
+  (
+    INT
+    INT
+  )
+    INT
+]
+(
+  [ x :
+    INT
+  ]
+  [ y :
+    INT
+  ]
+)
+{
+  Let
+  (
+    INT
+  )
+  {
+    Int 0
+  }
+  IN
+  {
+    IfLE x Ti4
+      Let
+      (
+        INT
+      )
+      {
+        Int 1
+      }
+      IN
+      {
+        Add y Ti5
+      }
+      Let
+      (
+        INT
+      )
+      {
+        Int 0
+      }
+      IN
+      {
+        IfLE y Ti6
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 1
+            }
+            IN
+            {
+              Sub x Ti7
+            }
+          }
+          IN
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 1
+            }
+            IN
+            {
+              App ack
+                Ti8
+                Ti9
+            }
+          }
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 1
+            }
+            IN
+            {
+              Sub x Ti10
+            }
+          }
+          IN
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Let
+                (
+                  INT
+                )
+                {
+                  Int 1
+                }
+                IN
+                {
+                  Sub y Ti12
+                }
+              }
+              IN
+              {
+                App ack
+                  x
+                  Ti13
+              }
+            }
+            IN
+            {
+              App ack
+                Ti11
+                Ti14
+            }
+          }
+      }
+  }
+}
+In
+{
+  Let
+  (
+    INT
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 3
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 10
+      }
+      IN
+      {
+        App ack
+          Ti1
+          Ti2
+      }
+    }
+  }
+  IN
+  {
+    ExtFunApp print_int
+    Ti3
+  }
+}

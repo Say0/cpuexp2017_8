@@ -1,0 +1,348 @@
+LET REC loop3 i k j a b c
+  IF
+    NOT
+      LE
+        INT 0
+        VAR k
+    UNIT
+    LET Tu1
+      PUT
+        GET
+          VAR c
+          VAR i
+        VAR j
+        FADD
+          GET
+            GET
+              VAR c
+              VAR i
+            VAR j
+          FMUL
+            GET
+              GET
+                VAR a
+                VAR i
+              VAR k
+            GET
+              GET
+                VAR b
+                VAR k
+              VAR j
+    IN
+      APP
+        VAR loop3
+        VAR i
+        SUB
+          VAR k
+          INT 1
+        VAR j
+        VAR a
+        VAR b
+        VAR c
+IN
+  LET REC loop2 i m j a b c
+    IF
+      NOT
+        LE
+          INT 0
+          VAR j
+      UNIT
+      LET Tu2
+        APP
+          VAR loop3
+          VAR i
+          SUB
+            VAR m
+            INT 1
+          VAR j
+          VAR a
+          VAR b
+          VAR c
+      IN
+        APP
+          VAR loop2
+          VAR i
+          VAR m
+          SUB
+            VAR j
+            INT 1
+          VAR a
+          VAR b
+          VAR c
+  IN
+    LET REC loop1 i m n a b c
+      IF
+        NOT
+          LE
+            INT 0
+            VAR i
+        UNIT
+        LET Tu3
+          APP
+            VAR loop2
+            VAR i
+            VAR m
+            SUB
+              VAR n
+              INT 1
+            VAR a
+            VAR b
+            VAR c
+        IN
+          APP
+            VAR loop1
+            SUB
+              VAR i
+              INT 1
+            VAR m
+            VAR n
+            VAR a
+            VAR b
+            VAR c
+    IN
+      LET REC mul l m n a b c
+        APP
+          VAR loop1
+          SUB
+            VAR l
+            INT 1
+          VAR m
+          VAR n
+          VAR a
+          VAR b
+          VAR c
+      IN
+        LET dummy
+          ARRAY
+            INT 0
+            FLOAT 0.000000
+        IN
+          LET REC init i n mat
+            IF
+              NOT
+                LE
+                  INT 0
+                  VAR i
+              UNIT
+              LET Tu4
+                PUT
+                  VAR mat
+                  VAR i
+                  ARRAY
+                    VAR n
+                    FLOAT 0.000000
+              IN
+                APP
+                  VAR init
+                  SUB
+                    VAR i
+                    INT 1
+                  VAR n
+                  VAR mat
+          IN
+            LET REC make m n dummy
+              LET mat
+                ARRAY
+                  VAR m
+                  VAR dummy
+              IN
+                LET Tu5
+                  APP
+                    VAR init
+                    SUB
+                      VAR m
+                      INT 1
+                    VAR n
+                    VAR mat
+                IN
+                  VAR mat
+            IN
+              LET a
+                APP
+                  VAR make
+                  INT 2
+                  INT 3
+                  VAR dummy
+              IN
+                LET b
+                  APP
+                    VAR make
+                    INT 3
+                    INT 2
+                    VAR dummy
+                IN
+                  LET c
+                    APP
+                      VAR make
+                      INT 2
+                      INT 2
+                      VAR dummy
+                  IN
+                    LET Tu25
+                      PUT
+                        GET
+                          VAR a
+                          INT 0
+                        INT 0
+                        FLOAT 1.000000
+                    IN
+                      LET Tu24
+                        PUT
+                          GET
+                            VAR a
+                            INT 0
+                          INT 1
+                          FLOAT 2.000000
+                      IN
+                        LET Tu23
+                          PUT
+                            GET
+                              VAR a
+                              INT 0
+                            INT 2
+                            FLOAT 3.000000
+                        IN
+                          LET Tu22
+                            PUT
+                              GET
+                                VAR a
+                                INT 1
+                              INT 0
+                              FLOAT 4.000000
+                          IN
+                            LET Tu21
+                              PUT
+                                GET
+                                  VAR a
+                                  INT 1
+                                INT 1
+                                FLOAT 5.000000
+                            IN
+                              LET Tu20
+                                PUT
+                                  GET
+                                    VAR a
+                                    INT 1
+                                  INT 2
+                                  FLOAT 6.000000
+                              IN
+                                LET Tu19
+                                  PUT
+                                    GET
+                                      VAR b
+                                      INT 0
+                                    INT 0
+                                    FLOAT 7.000000
+                                IN
+                                  LET Tu18
+                                    PUT
+                                      GET
+                                        VAR b
+                                        INT 0
+                                      INT 1
+                                      FLOAT 8.000000
+                                  IN
+                                    LET Tu17
+                                      PUT
+                                        GET
+                                          VAR b
+                                          INT 1
+                                        INT 0
+                                        FLOAT 9.000000
+                                    IN
+                                      LET Tu16
+                                        PUT
+                                          GET
+                                            VAR b
+                                            INT 1
+                                          INT 1
+                                          FLOAT 10.000000
+                                      IN
+                                        LET Tu15
+                                          PUT
+                                            GET
+                                              VAR b
+                                              INT 2
+                                            INT 0
+                                            FLOAT 11.000000
+                                        IN
+                                          LET Tu14
+                                            PUT
+                                              GET
+                                                VAR b
+                                                INT 2
+                                              INT 1
+                                              FLOAT 12.000000
+                                          IN
+                                            LET Tu13
+                                              APP
+                                                VAR mul
+                                                INT 2
+                                                INT 3
+                                                INT 2
+                                                VAR a
+                                                VAR b
+                                                VAR c
+                                            IN
+                                              LET Tu12
+                                                APP
+                                                  VAR print_int
+                                                  APP
+                                                    VAR truncate
+                                                    GET
+                                                      GET
+                                                        VAR c
+                                                        INT 0
+                                                      INT 0
+                                              IN
+                                                LET Tu11
+                                                  APP
+                                                    VAR print_newline
+                                                    UNIT
+                                                IN
+                                                  LET Tu10
+                                                    APP
+                                                      VAR print_int
+                                                      APP
+                                                        VAR truncate
+                                                        GET
+                                                          GET
+                                                            VAR c
+                                                            INT 0
+                                                          INT 1
+                                                  IN
+                                                    LET Tu9
+                                                      APP
+                                                        VAR print_newline
+                                                        UNIT
+                                                    IN
+                                                      LET Tu8
+                                                        APP
+                                                          VAR print_int
+                                                          APP
+                                                            VAR truncate
+                                                            GET
+                                                              GET
+                                                                VAR c
+                                                                INT 1
+                                                              INT 0
+                                                      IN
+                                                        LET Tu7
+                                                          APP
+                                                            VAR print_newline
+                                                            UNIT
+                                                        IN
+                                                          LET Tu6
+                                                            APP
+                                                              VAR print_int
+                                                              APP
+                                                                VAR truncate
+                                                                GET
+                                                                  GET
+                                                                    VAR c
+                                                                    INT 1
+                                                                  INT 1
+                                                          IN
+                                                            APP
+                                                              VAR print_newline
+                                                              UNIT

@@ -1,0 +1,116 @@
+LetRec
+[ fib :
+  FUN
+  (
+    INT
+  )
+    INT
+]
+(
+  [ n :
+    INT
+  ]
+)
+{
+  Let
+  (
+    INT
+  )
+  {
+    Int 1
+  }
+  IN
+  {
+    IfLE n Ti3
+       Var n
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 1
+          }
+          IN
+          {
+            Sub n Ti4
+          }
+        }
+        IN
+        {
+          App fib
+            Ti5
+        }
+      }
+      IN
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 2
+            }
+            IN
+            {
+              Sub n Ti7
+            }
+          }
+          IN
+          {
+            App fib
+              Ti8
+          }
+        }
+        IN
+        {
+          Add Ti6 Ti9
+        }
+      }
+  }
+}
+In
+{
+  Let
+  (
+    INT
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 30
+    }
+    IN
+    {
+      App fib
+        Ti1
+    }
+  }
+  IN
+  {
+    ExtFunApp print_int
+    Ti2
+  }
+}

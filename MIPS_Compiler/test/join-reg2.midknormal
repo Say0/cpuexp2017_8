@@ -1,0 +1,154 @@
+LetRec
+[ f :
+  FUN
+  (
+    UNIT
+  )
+    INT
+]
+(
+  [ Tu1 :
+    UNIT
+  ]
+)
+{
+  Int 123
+}
+In
+{
+  LetRec
+  [ g :
+    FUN
+    (
+      UNIT
+    )
+      INT
+  ]
+  (
+    [ Tu2 :
+      UNIT
+    ]
+  )
+  {
+    Int 456
+  }
+  In
+  {
+    LetRec
+    [ h :
+      FUN
+      (
+        UNIT
+      )
+        INT
+    ]
+    (
+      [ Tu3 :
+        UNIT
+      ]
+    )
+    {
+      Int 789
+    }
+    In
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          UNIT
+        )
+        {
+          Unit
+        }
+        IN
+        {
+          App f
+            Tu4
+        }
+      }
+      IN
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 0
+            }
+            IN
+            {
+              IfLE x Ti5
+                Let
+                (
+                  INT
+                )
+                {
+                  Let
+                  (
+                    UNIT
+                  )
+                  {
+                    Unit
+                  }
+                  IN
+                  {
+                    App g
+                      Tu6
+                  }
+                }
+                IN
+                {
+                  Add Ti7 x
+                }
+                Let
+                (
+                  INT
+                )
+                {
+                  Let
+                  (
+                    UNIT
+                  )
+                  {
+                    Unit
+                  }
+                  IN
+                  {
+                    App h
+                      Tu8
+                  }
+                }
+                IN
+                {
+                  Sub Ti9 x
+                }
+            }
+          }
+          IN
+          {
+            Add Ti10 x
+          }
+        }
+        IN
+        {
+          ExtFunApp print_int
+          Ti11
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+LetRec
+[ make_adder :
+  FUN
+  (
+    INT
+  )
+    FUN
+    (
+      INT
+    )
+      INT
+]
+(
+  [ x :
+    INT
+  ]
+)
+{
+  LetRec
+  [ adder :
+    FUN
+    (
+      INT
+    )
+      INT
+  ]
+  (
+    [ y :
+      INT
+    ]
+  )
+  {
+    Add x y
+  }
+  In
+  {
+     Var adder
+  }
+}
+In
+{
+  Let
+  (
+    INT
+  )
+  {
+    Let
+    (
+      FUN
+      (
+        INT
+      )
+        INT
+    )
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 3
+      }
+      IN
+      {
+        App make_adder
+          Ti1
+      }
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 7
+      }
+      IN
+      {
+        App Tf2
+          Ti3
+      }
+    }
+  }
+  IN
+  {
+    ExtFunApp print_int
+    Ti4
+  }
+}

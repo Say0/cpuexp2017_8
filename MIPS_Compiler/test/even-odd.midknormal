@@ -1,0 +1,213 @@
+Let
+(
+  INT
+)
+{
+  Int 123
+}
+IN
+{
+  Let
+  (
+    INT
+  )
+  {
+    Int 456
+  }
+  IN
+  {
+    LetRec
+    [ even :
+      FUN
+      (
+        INT
+      )
+        INT
+    ]
+    (
+      [ x :
+        INT
+      ]
+    )
+    {
+      LetRec
+      [ odd :
+        FUN
+        (
+          INT
+        )
+          INT
+      ]
+      (
+        [ x :
+          INT
+        ]
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 0
+        }
+        IN
+        {
+          IfLE x Ti9
+            Let
+            (
+              INT
+            )
+            {
+              Int 0
+            }
+            IN
+            {
+              IfLE Ti10 x
+                 Var f
+                Let
+                (
+                  INT
+                )
+                {
+                  Let
+                  (
+                    INT
+                  )
+                  {
+                    Int 1
+                  }
+                  IN
+                  {
+                    Add x Ti11
+                  }
+                }
+                IN
+                {
+                  App even
+                    Ti12
+                }
+            }
+            Let
+            (
+              INT
+            )
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Int 1
+              }
+              IN
+              {
+                Sub x Ti13
+              }
+            }
+            IN
+            {
+              App even
+                Ti14
+            }
+        }
+      }
+      In
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 0
+        }
+        IN
+        {
+          IfLE x Ti3
+            Let
+            (
+              INT
+            )
+            {
+              Int 0
+            }
+            IN
+            {
+              IfLE Ti4 x
+                 Var t
+                Let
+                (
+                  INT
+                )
+                {
+                  Let
+                  (
+                    INT
+                  )
+                  {
+                    Int 1
+                  }
+                  IN
+                  {
+                    Add x Ti5
+                  }
+                }
+                IN
+                {
+                  App odd
+                    Ti6
+                }
+            }
+            Let
+            (
+              INT
+            )
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Int 1
+              }
+              IN
+              {
+                Sub x Ti7
+              }
+            }
+            IN
+            {
+              App odd
+                Ti8
+            }
+        }
+      }
+    }
+    In
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 789
+        }
+        IN
+        {
+          App even
+            Ti1
+        }
+      }
+      IN
+      {
+        ExtFunApp print_int
+        Ti2
+      }
+    }
+  }
+}

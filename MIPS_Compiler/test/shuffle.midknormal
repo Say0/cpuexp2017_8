@@ -1,0 +1,207 @@
+LetRec
+[ foo :
+  FUN
+  (
+    INT
+    INT
+    INT
+    INT
+    INT
+    INT
+  )
+    UNIT
+]
+(
+  [ a :
+    INT
+  ]
+  [ b :
+    INT
+  ]
+  [ c :
+    INT
+  ]
+  [ d :
+    INT
+  ]
+  [ e :
+    INT
+  ]
+  [ f :
+    INT
+  ]
+)
+{
+  Let
+  (
+    UNIT
+  )
+  {
+    ExtFunApp print_int
+    a
+  }
+  IN
+  {
+    Let
+    (
+      UNIT
+    )
+    {
+      ExtFunApp print_int
+      b
+    }
+    IN
+    {
+      Let
+      (
+        UNIT
+      )
+      {
+        ExtFunApp print_int
+        c
+      }
+      IN
+      {
+        Let
+        (
+          UNIT
+        )
+        {
+          ExtFunApp print_int
+          d
+        }
+        IN
+        {
+          Let
+          (
+            UNIT
+          )
+          {
+            ExtFunApp print_int
+            e
+          }
+          IN
+          {
+            ExtFunApp print_int
+            f
+          }
+        }
+      }
+    }
+  }
+}
+In
+{
+  LetRec
+  [ bar :
+    FUN
+    (
+      INT
+      INT
+      INT
+      INT
+      INT
+      INT
+    )
+      UNIT
+  ]
+  (
+    [ a :
+      INT
+    ]
+    [ b :
+      INT
+    ]
+    [ c :
+      INT
+    ]
+    [ d :
+      INT
+    ]
+    [ e :
+      INT
+    ]
+    [ f :
+      INT
+    ]
+  )
+  {
+    App foo
+      b
+      a
+      d
+      e
+      f
+      c
+  }
+  In
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 1
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 2
+      }
+      IN
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 3
+        }
+        IN
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 4
+          }
+          IN
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 5
+            }
+            IN
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Int 6
+              }
+              IN
+              {
+                App bar
+                  Ti6
+                  Ti7
+                  Ti8
+                  Ti9
+                  Ti10
+                  Ti11
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

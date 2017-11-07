@@ -1,0 +1,48 @@
+LET REC foo a b c d e f
+  LET Tu5
+    APP
+      VAR print_int
+      VAR a
+  IN
+    LET Tu4
+      APP
+        VAR print_int
+        VAR b
+    IN
+      LET Tu3
+        APP
+          VAR print_int
+          VAR c
+      IN
+        LET Tu2
+          APP
+            VAR print_int
+            VAR d
+        IN
+          LET Tu1
+            APP
+              VAR print_int
+              VAR e
+          IN
+            APP
+              VAR print_int
+              VAR f
+IN
+  LET REC bar a b c d e f
+    APP
+      VAR foo
+      VAR b
+      VAR a
+      VAR d
+      VAR e
+      VAR f
+      VAR c
+  IN
+    APP
+      VAR bar
+      INT 1
+      INT 2
+      INT 3
+      INT 4
+      INT 5
+      INT 6

@@ -1,0 +1,95 @@
+Let
+(
+  INT
+)
+{
+  Int 10
+}
+IN
+{
+  LetRec
+  [ f :
+    FUN
+    (
+      INT
+    )
+      INT
+  ]
+  (
+    [ y :
+      INT
+    ]
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 0
+    }
+    IN
+    {
+      IfEq y Ti3
+        Int 0
+        Let
+        (
+          INT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 1
+            }
+            IN
+            {
+              Sub y Ti4
+            }
+          }
+          IN
+          {
+            App f
+              Ti5
+          }
+        }
+        IN
+        {
+          Add x Ti6
+        }
+    }
+  }
+  In
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 123
+      }
+      IN
+      {
+        App f
+          Ti1
+      }
+    }
+    IN
+    {
+      ExtFunApp print_int
+      Ti2
+    }
+  }
+}

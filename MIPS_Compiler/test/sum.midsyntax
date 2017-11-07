@@ -1,0 +1,19 @@
+LET REC sum x
+  IF
+    LE
+      VAR x
+      INT 0
+    INT 0
+    ADD
+      APP
+        VAR sum
+        SUB
+          VAR x
+          INT 1
+      VAR x
+IN
+  APP
+    VAR print_int
+    APP
+      VAR sum
+      INT 10000

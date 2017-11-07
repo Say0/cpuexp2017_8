@@ -1,0 +1,260 @@
+LET REC f x0
+  LET x1
+    ADD
+      VAR x0
+      INT 1
+  IN
+    LET x2
+      ADD
+        VAR x1
+        INT 1
+    IN
+      LET x3
+        ADD
+          VAR x2
+          INT 1
+      IN
+        LET x4
+          ADD
+            VAR x3
+            INT 1
+        IN
+          LET x5
+            ADD
+              VAR x4
+              INT 1
+          IN
+            LET x6
+              ADD
+                VAR x5
+                INT 1
+            IN
+              LET x7
+                ADD
+                  VAR x6
+                  INT 1
+              IN
+                LET x8
+                  ADD
+                    VAR x7
+                    INT 1
+                IN
+                  LET x9
+                    ADD
+                      VAR x8
+                      INT 1
+                  IN
+                    LET x10
+                      ADD
+                        VAR x9
+                        INT 1
+                    IN
+                      LET x11
+                        ADD
+                          VAR x10
+                          INT 1
+                      IN
+                        LET x12
+                          ADD
+                            VAR x11
+                            INT 1
+                        IN
+                          LET x13
+                            ADD
+                              VAR x12
+                              INT 1
+                          IN
+                            LET x14
+                              ADD
+                                VAR x13
+                                INT 1
+                            IN
+                              LET x15
+                                ADD
+                                  VAR x14
+                                  INT 1
+                              IN
+                                LET x16
+                                  ADD
+                                    VAR x15
+                                    INT 1
+                                IN
+                                  LET x17
+                                    ADD
+                                      VAR x16
+                                      INT 1
+                                  IN
+                                    LET x18
+                                      ADD
+                                        VAR x17
+                                        INT 1
+                                    IN
+                                      LET x19
+                                        ADD
+                                          VAR x18
+                                          VAR x1
+                                      IN
+                                        LET x20
+                                          ADD
+                                            VAR x19
+                                            VAR x2
+                                        IN
+                                          LET x21
+                                            ADD
+                                              VAR x20
+                                              VAR x3
+                                          IN
+                                            LET x22
+                                              ADD
+                                                VAR x21
+                                                VAR x4
+                                            IN
+                                              LET x23
+                                                ADD
+                                                  VAR x22
+                                                  VAR x5
+                                              IN
+                                                LET x24
+                                                  ADD
+                                                    VAR x23
+                                                    VAR x6
+                                                IN
+                                                  LET x25
+                                                    ADD
+                                                      VAR x24
+                                                      VAR x7
+                                                  IN
+                                                    LET x26
+                                                      ADD
+                                                        VAR x25
+                                                        VAR x8
+                                                    IN
+                                                      LET x27
+                                                        ADD
+                                                          VAR x26
+                                                          VAR x9
+                                                      IN
+                                                        LET x28
+                                                          ADD
+                                                            VAR x27
+                                                            VAR x10
+                                                        IN
+                                                          LET x29
+                                                            ADD
+                                                              VAR x28
+                                                              VAR x11
+                                                          IN
+                                                            LET x30
+                                                              ADD
+                                                                VAR x29
+                                                                VAR x12
+                                                            IN
+                                                              LET x31
+                                                                ADD
+                                                                  VAR x30
+                                                                  VAR x13
+                                                              IN
+                                                                LET x32
+                                                                  ADD
+                                                                    VAR x31
+                                                                    VAR x14
+                                                                IN
+                                                                  LET x33
+                                                                    ADD
+                                                                      VAR x32
+                                                                      VAR x15
+                                                                  IN
+                                                                    LET x34
+                                                                      ADD
+                                                                        VAR x33
+                                                                        VAR x16
+                                                                    IN
+                                                                      LET x35
+                                                                        ADD
+                                                                          VAR x34
+                                                                          VAR x17
+                                                                      IN
+                                                                        LET x36
+                                                                          ADD
+                                                                            VAR x35
+                                                                            VAR x0
+                                                                        IN
+                                                                          ADD
+                                                                            ADD
+                                                                              ADD
+                                                                                ADD
+                                                                                  ADD
+                                                                                    ADD
+                                                                                      ADD
+                                                                                        ADD
+                                                                                          ADD
+                                                                                            ADD
+                                                                                              ADD
+                                                                                                ADD
+                                                                                                  ADD
+                                                                                                    ADD
+                                                                                                      ADD
+                                                                                                        ADD
+                                                                                                          ADD
+                                                                                                            ADD
+                                                                                                              ADD
+                                                                                                                ADD
+                                                                                                                  ADD
+                                                                                                                    ADD
+                                                                                                                      ADD
+                                                                                                                        ADD
+                                                                                                                          ADD
+                                                                                                                            ADD
+                                                                                                                              ADD
+                                                                                                                                ADD
+                                                                                                                                  ADD
+                                                                                                                                    ADD
+                                                                                                                                      ADD
+                                                                                                                                        ADD
+                                                                                                                                          ADD
+                                                                                                                                            ADD
+                                                                                                                                              ADD
+                                                                                                                                                ADD
+                                                                                                                                                  VAR x1
+                                                                                                                                                  VAR x2
+                                                                                                                                                VAR x3
+                                                                                                                                              VAR x4
+                                                                                                                                            VAR x5
+                                                                                                                                          VAR x6
+                                                                                                                                        VAR x7
+                                                                                                                                      VAR x8
+                                                                                                                                    VAR x9
+                                                                                                                                  VAR x10
+                                                                                                                                VAR x11
+                                                                                                                              VAR x12
+                                                                                                                            VAR x13
+                                                                                                                          VAR x14
+                                                                                                                        VAR x15
+                                                                                                                      VAR x16
+                                                                                                                    VAR x17
+                                                                                                                  VAR x18
+                                                                                                                VAR x19
+                                                                                                              VAR x20
+                                                                                                            VAR x21
+                                                                                                          VAR x22
+                                                                                                        VAR x23
+                                                                                                      VAR x24
+                                                                                                    VAR x25
+                                                                                                  VAR x26
+                                                                                                VAR x27
+                                                                                              VAR x28
+                                                                                            VAR x29
+                                                                                          VAR x30
+                                                                                        VAR x31
+                                                                                      VAR x32
+                                                                                    VAR x33
+                                                                                  VAR x34
+                                                                                VAR x35
+                                                                              VAR x36
+                                                                            VAR x0
+IN
+  APP
+    VAR print_int
+    APP
+      VAR f
+      INT 0

@@ -1,0 +1,100 @@
+LetRec
+[ f :
+  FUN
+  (
+    INT
+  )
+    INT
+]
+(
+  [ x :
+    INT
+  ]
+)
+{
+  Let
+  (
+    INT
+  )
+  {
+    Int 123
+  }
+  IN
+  {
+    Add x Ti5
+  }
+}
+In
+{
+  LetRec
+  [ g :
+    FUN
+    (
+      INT
+    )
+      FUN
+      (
+        INT
+      )
+        INT
+  ]
+  (
+    [ y :
+      INT
+    ]
+  )
+  {
+     Var f
+  }
+  In
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Let
+      (
+        FUN
+        (
+          INT
+        )
+          INT
+      )
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 456
+        }
+        IN
+        {
+          App g
+            Ti1
+        }
+      }
+      IN
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 789
+        }
+        IN
+        {
+          App Tf2
+            Ti3
+        }
+      }
+    }
+    IN
+    {
+      ExtFunApp print_int
+      Ti4
+    }
+  }
+}

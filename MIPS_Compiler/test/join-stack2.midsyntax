@@ -1,0 +1,25 @@
+LET REC f Tu1
+  INT 123
+IN
+  LET REC g Tu2
+    INT 456
+  IN
+    LET x
+      APP
+        VAR f
+        UNIT
+    IN
+      APP
+        VAR print_int
+        ADD
+          IF
+            LE
+              VAR x
+              INT 0
+            ADD
+              APP
+                VAR g
+                UNIT
+              VAR x
+            VAR x
+          VAR x

@@ -1,0 +1,228 @@
+LetRec
+[ inprod :
+  FUN
+  (
+    ARRAY
+      FLOAT
+    ARRAY
+      FLOAT
+    INT
+  )
+    FLOAT
+]
+(
+  [ v1 :
+    ARRAY
+      FLOAT
+  ]
+  [ v2 :
+    ARRAY
+      FLOAT
+  ]
+  [ i :
+    INT
+  ]
+)
+{
+  Let
+  (
+    INT
+  )
+  {
+    Int 0
+  }
+  IN
+  {
+    IfLE Ti10 i
+      Let
+      (
+        FLOAT
+      )
+      {
+        Let
+        (
+          FLOAT
+        )
+        {
+          Get v1 i
+        }
+        IN
+        {
+          Let
+          (
+            FLOAT
+          )
+          {
+            Get v2 i
+          }
+          IN
+          {
+            FMul Td11 Td12
+          }
+        }
+      }
+      IN
+      {
+        Let
+        (
+          FLOAT
+        )
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Int 1
+            }
+            IN
+            {
+              Sub i Ti14
+            }
+          }
+          IN
+          {
+            App inprod
+              v1
+              v2
+              Ti15
+          }
+        }
+        IN
+        {
+          FAdd Td13 Td16
+        }
+      }
+      Float 0.000000
+  }
+}
+In
+{
+  Let
+  (
+    ARRAY
+      FLOAT
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 3
+    }
+    IN
+    {
+      Let
+      (
+        FLOAT
+      )
+      {
+        Float 1.230000
+      }
+      IN
+      {
+        ExtFunApp create_float_array
+        Ti1
+        Td2
+      }
+    }
+  }
+  IN
+  {
+    Let
+    (
+      ARRAY
+        FLOAT
+    )
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 3
+      }
+      IN
+      {
+        Let
+        (
+          FLOAT
+        )
+        {
+          Float 4.560000
+        }
+        IN
+        {
+          ExtFunApp create_float_array
+          Ti3
+          Td4
+        }
+      }
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Let
+        (
+          FLOAT
+        )
+        {
+          Let
+          (
+            FLOAT
+          )
+          {
+            Float 1000000.000000
+          }
+          IN
+          {
+            Let
+            (
+              FLOAT
+            )
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Int 2
+              }
+              IN
+              {
+                App inprod
+                  v1
+                  v2
+                  Ti6
+              }
+            }
+            IN
+            {
+              FMul Td5 Td7
+            }
+          }
+        }
+        IN
+        {
+          ExtFunApp truncate
+          Td8
+        }
+      }
+      IN
+      {
+        ExtFunApp print_int
+        Ti9
+      }
+    }
+  }
+}

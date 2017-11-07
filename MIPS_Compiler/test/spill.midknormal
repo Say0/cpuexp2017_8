@@ -1,0 +1,817 @@
+LetRec
+[ f :
+  FUN
+  (
+    INT
+    INT
+    INT
+    INT
+  )
+    INT
+]
+(
+  [ a :
+    INT
+  ]
+  [ b :
+    INT
+  ]
+  [ c :
+    INT
+  ]
+  [ d :
+    INT
+  ]
+)
+{
+  Let
+  (
+    INT
+  )
+  {
+    Add a b
+  }
+  IN
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Add a c
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Add a d
+      }
+      IN
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Add b c
+        }
+        IN
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Add b d
+          }
+          IN
+          {
+            Let
+            (
+              INT
+            )
+            {
+              Add c d
+            }
+            IN
+            {
+              Let
+              (
+                INT
+              )
+              {
+                Add e f
+              }
+              IN
+              {
+                Let
+                (
+                  INT
+                )
+                {
+                  Add e g
+                }
+                IN
+                {
+                  Let
+                  (
+                    INT
+                  )
+                  {
+                    Add e h
+                  }
+                  IN
+                  {
+                    Let
+                    (
+                      INT
+                    )
+                    {
+                      Add e i
+                    }
+                    IN
+                    {
+                      Let
+                      (
+                        INT
+                      )
+                      {
+                        Add e j
+                      }
+                      IN
+                      {
+                        Let
+                        (
+                          INT
+                        )
+                        {
+                          Add f g
+                        }
+                        IN
+                        {
+                          Let
+                          (
+                            INT
+                          )
+                          {
+                            Add f h
+                          }
+                          IN
+                          {
+                            Let
+                            (
+                              INT
+                            )
+                            {
+                              Add f i
+                            }
+                            IN
+                            {
+                              Let
+                              (
+                                INT
+                              )
+                              {
+                                Add f j
+                              }
+                              IN
+                              {
+                                Let
+                                (
+                                  INT
+                                )
+                                {
+                                  Add g h
+                                }
+                                IN
+                                {
+                                  Let
+                                  (
+                                    INT
+                                  )
+                                  {
+                                    Add g i
+                                  }
+                                  IN
+                                  {
+                                    Let
+                                    (
+                                      INT
+                                    )
+                                    {
+                                      Add g j
+                                    }
+                                    IN
+                                    {
+                                      Let
+                                      (
+                                        INT
+                                      )
+                                      {
+                                        Add h i
+                                      }
+                                      IN
+                                      {
+                                        Let
+                                        (
+                                          INT
+                                        )
+                                        {
+                                          Add h j
+                                        }
+                                        IN
+                                        {
+                                          Let
+                                          (
+                                            INT
+                                          )
+                                          {
+                                            Add i j
+                                          }
+                                          IN
+                                          {
+                                            Let
+                                            (
+                                              INT
+                                            )
+                                            {
+                                              Add k l
+                                            }
+                                            IN
+                                            {
+                                              Let
+                                              (
+                                                INT
+                                              )
+                                              {
+                                                Add k m
+                                              }
+                                              IN
+                                              {
+                                                Let
+                                                (
+                                                  INT
+                                                )
+                                                {
+                                                  Add k n
+                                                }
+                                                IN
+                                                {
+                                                  Let
+                                                  (
+                                                    INT
+                                                  )
+                                                  {
+                                                    Add k o
+                                                  }
+                                                  IN
+                                                  {
+                                                    Let
+                                                    (
+                                                      INT
+                                                    )
+                                                    {
+                                                      Add k p
+                                                    }
+                                                    IN
+                                                    {
+                                                      Let
+                                                      (
+                                                        INT
+                                                      )
+                                                      {
+                                                        Add k q
+                                                      }
+                                                      IN
+                                                      {
+                                                        Let
+                                                        (
+                                                          INT
+                                                        )
+                                                        {
+                                                          Add k r
+                                                        }
+                                                        IN
+                                                        {
+                                                          Let
+                                                          (
+                                                            INT
+                                                          )
+                                                          {
+                                                            Add k s
+                                                          }
+                                                          IN
+                                                          {
+                                                            Let
+                                                            (
+                                                              INT
+                                                            )
+                                                            {
+                                                              Add k t
+                                                            }
+                                                            IN
+                                                            {
+                                                              Let
+                                                              (
+                                                                INT
+                                                              )
+                                                              {
+                                                                Add k u
+                                                              }
+                                                              IN
+                                                              {
+                                                                Let
+                                                                (
+                                                                  INT
+                                                                )
+                                                                {
+                                                                  Add k v
+                                                                }
+                                                                IN
+                                                                {
+                                                                  Let
+                                                                  (
+                                                                    INT
+                                                                  )
+                                                                  {
+                                                                    Add k w
+                                                                  }
+                                                                  IN
+                                                                  {
+                                                                    Let
+                                                                    (
+                                                                      INT
+                                                                    )
+                                                                    {
+                                                                      Add k x
+                                                                    }
+                                                                    IN
+                                                                    {
+                                                                      Let
+                                                                      (
+                                                                        INT
+                                                                      )
+                                                                      {
+                                                                        Add k y
+                                                                      }
+                                                                      IN
+                                                                      {
+                                                                        Let
+                                                                        (
+                                                                          INT
+                                                                        )
+                                                                        {
+                                                                          Let
+                                                                          (
+                                                                            INT
+                                                                          )
+                                                                          {
+                                                                            Let
+                                                                            (
+                                                                              INT
+                                                                            )
+                                                                            {
+                                                                              Let
+                                                                              (
+                                                                                INT
+                                                                              )
+                                                                              {
+                                                                                Let
+                                                                                (
+                                                                                  INT
+                                                                                )
+                                                                                {
+                                                                                  Let
+                                                                                  (
+                                                                                    INT
+                                                                                  )
+                                                                                  {
+                                                                                    Let
+                                                                                    (
+                                                                                      INT
+                                                                                    )
+                                                                                    {
+                                                                                      Let
+                                                                                      (
+                                                                                        INT
+                                                                                      )
+                                                                                      {
+                                                                                        Let
+                                                                                        (
+                                                                                          INT
+                                                                                        )
+                                                                                        {
+                                                                                          Let
+                                                                                          (
+                                                                                            INT
+                                                                                          )
+                                                                                          {
+                                                                                            Let
+                                                                                            (
+                                                                                              INT
+                                                                                            )
+                                                                                            {
+                                                                                              Let
+                                                                                              (
+                                                                                                INT
+                                                                                              )
+                                                                                              {
+                                                                                                Let
+                                                                                                (
+                                                                                                  INT
+                                                                                                )
+                                                                                                {
+                                                                                                  Let
+                                                                                                  (
+                                                                                                    INT
+                                                                                                  )
+                                                                                                  {
+                                                                                                    Let
+                                                                                                    (
+                                                                                                      INT
+                                                                                                    )
+                                                                                                    {
+                                                                                                      Let
+                                                                                                      (
+                                                                                                        INT
+                                                                                                      )
+                                                                                                      {
+                                                                                                        Let
+                                                                                                        (
+                                                                                                          INT
+                                                                                                        )
+                                                                                                        {
+                                                                                                          Let
+                                                                                                          (
+                                                                                                            INT
+                                                                                                          )
+                                                                                                          {
+                                                                                                            Let
+                                                                                                            (
+                                                                                                              INT
+                                                                                                            )
+                                                                                                            {
+                                                                                                              Let
+                                                                                                              (
+                                                                                                                INT
+                                                                                                              )
+                                                                                                              {
+                                                                                                                Let
+                                                                                                                (
+                                                                                                                  INT
+                                                                                                                )
+                                                                                                                {
+                                                                                                                  Let
+                                                                                                                  (
+                                                                                                                    INT
+                                                                                                                  )
+                                                                                                                  {
+                                                                                                                    Let
+                                                                                                                    (
+                                                                                                                      INT
+                                                                                                                    )
+                                                                                                                    {
+                                                                                                                      Let
+                                                                                                                      (
+                                                                                                                        INT
+                                                                                                                      )
+                                                                                                                      {
+                                                                                                                        Let
+                                                                                                                        (
+                                                                                                                          INT
+                                                                                                                        )
+                                                                                                                        {
+                                                                                                                          Let
+                                                                                                                          (
+                                                                                                                            INT
+                                                                                                                          )
+                                                                                                                          {
+                                                                                                                            Let
+                                                                                                                            (
+                                                                                                                              INT
+                                                                                                                            )
+                                                                                                                            {
+                                                                                                                              Let
+                                                                                                                              (
+                                                                                                                                INT
+                                                                                                                              )
+                                                                                                                              {
+                                                                                                                                Let
+                                                                                                                                (
+                                                                                                                                  INT
+                                                                                                                                )
+                                                                                                                                {
+                                                                                                                                  Let
+                                                                                                                                  (
+                                                                                                                                    INT
+                                                                                                                                  )
+                                                                                                                                  {
+                                                                                                                                    Let
+                                                                                                                                    (
+                                                                                                                                      INT
+                                                                                                                                    )
+                                                                                                                                    {
+                                                                                                                                      Let
+                                                                                                                                      (
+                                                                                                                                        INT
+                                                                                                                                      )
+                                                                                                                                      {
+                                                                                                                                        Let
+                                                                                                                                        (
+                                                                                                                                          INT
+                                                                                                                                        )
+                                                                                                                                        {
+                                                                                                                                          Let
+                                                                                                                                          (
+                                                                                                                                            INT
+                                                                                                                                          )
+                                                                                                                                          {
+                                                                                                                                            Let
+                                                                                                                                            (
+                                                                                                                                              INT
+                                                                                                                                            )
+                                                                                                                                            {
+                                                                                                                                              Let
+                                                                                                                                              (
+                                                                                                                                                INT
+                                                                                                                                              )
+                                                                                                                                              {
+                                                                                                                                                Let
+                                                                                                                                                (
+                                                                                                                                                  INT
+                                                                                                                                                )
+                                                                                                                                                {
+                                                                                                                                                  Let
+                                                                                                                                                  (
+                                                                                                                                                    INT
+                                                                                                                                                  )
+                                                                                                                                                  {
+                                                                                                                                                    Add a b
+                                                                                                                                                  }
+                                                                                                                                                  IN
+                                                                                                                                                  {
+                                                                                                                                                    Add Ti6 c
+                                                                                                                                                  }
+                                                                                                                                                }
+                                                                                                                                                IN
+                                                                                                                                                {
+                                                                                                                                                  Add Ti7 d
+                                                                                                                                                }
+                                                                                                                                              }
+                                                                                                                                              IN
+                                                                                                                                              {
+                                                                                                                                                Add Ti8 e
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                            IN
+                                                                                                                                            {
+                                                                                                                                              Add Ti9 f
+                                                                                                                                            }
+                                                                                                                                          }
+                                                                                                                                          IN
+                                                                                                                                          {
+                                                                                                                                            Add Ti10 g
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                        IN
+                                                                                                                                        {
+                                                                                                                                          Add Ti11 h
+                                                                                                                                        }
+                                                                                                                                      }
+                                                                                                                                      IN
+                                                                                                                                      {
+                                                                                                                                        Add Ti12 i
+                                                                                                                                      }
+                                                                                                                                    }
+                                                                                                                                    IN
+                                                                                                                                    {
+                                                                                                                                      Add Ti13 j
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                  IN
+                                                                                                                                  {
+                                                                                                                                    Add Ti14 k
+                                                                                                                                  }
+                                                                                                                                }
+                                                                                                                                IN
+                                                                                                                                {
+                                                                                                                                  Add Ti15 l
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                              IN
+                                                                                                                              {
+                                                                                                                                Add Ti16 m
+                                                                                                                              }
+                                                                                                                            }
+                                                                                                                            IN
+                                                                                                                            {
+                                                                                                                              Add Ti17 n
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                          IN
+                                                                                                                          {
+                                                                                                                            Add Ti18 o
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                        IN
+                                                                                                                        {
+                                                                                                                          Add Ti19 p
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                      IN
+                                                                                                                      {
+                                                                                                                        Add Ti20 q
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                    IN
+                                                                                                                    {
+                                                                                                                      Add Ti21 r
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                  IN
+                                                                                                                  {
+                                                                                                                    Add Ti22 s
+                                                                                                                  }
+                                                                                                                }
+                                                                                                                IN
+                                                                                                                {
+                                                                                                                  Add Ti23 t
+                                                                                                                }
+                                                                                                              }
+                                                                                                              IN
+                                                                                                              {
+                                                                                                                Add Ti24 u
+                                                                                                              }
+                                                                                                            }
+                                                                                                            IN
+                                                                                                            {
+                                                                                                              Add Ti25 v
+                                                                                                            }
+                                                                                                          }
+                                                                                                          IN
+                                                                                                          {
+                                                                                                            Add Ti26 w
+                                                                                                          }
+                                                                                                        }
+                                                                                                        IN
+                                                                                                        {
+                                                                                                          Add Ti27 x
+                                                                                                        }
+                                                                                                      }
+                                                                                                      IN
+                                                                                                      {
+                                                                                                        Add Ti28 y
+                                                                                                      }
+                                                                                                    }
+                                                                                                    IN
+                                                                                                    {
+                                                                                                      Add Ti29 aa
+                                                                                                    }
+                                                                                                  }
+                                                                                                  IN
+                                                                                                  {
+                                                                                                    Add Ti30 ab
+                                                                                                  }
+                                                                                                }
+                                                                                                IN
+                                                                                                {
+                                                                                                  Add Ti31 ac
+                                                                                                }
+                                                                                              }
+                                                                                              IN
+                                                                                              {
+                                                                                                Add Ti32 ad
+                                                                                              }
+                                                                                            }
+                                                                                            IN
+                                                                                            {
+                                                                                              Add Ti33 ae
+                                                                                            }
+                                                                                          }
+                                                                                          IN
+                                                                                          {
+                                                                                            Add Ti34 af
+                                                                                          }
+                                                                                        }
+                                                                                        IN
+                                                                                        {
+                                                                                          Add Ti35 ag
+                                                                                        }
+                                                                                      }
+                                                                                      IN
+                                                                                      {
+                                                                                        Add Ti36 ah
+                                                                                      }
+                                                                                    }
+                                                                                    IN
+                                                                                    {
+                                                                                      Add Ti37 ai
+                                                                                    }
+                                                                                  }
+                                                                                  IN
+                                                                                  {
+                                                                                    Add Ti38 aj
+                                                                                  }
+                                                                                }
+                                                                                IN
+                                                                                {
+                                                                                  Add Ti39 ak
+                                                                                }
+                                                                              }
+                                                                              IN
+                                                                              {
+                                                                                Add Ti40 al
+                                                                              }
+                                                                            }
+                                                                            IN
+                                                                            {
+                                                                              Add Ti41 am
+                                                                            }
+                                                                          }
+                                                                          IN
+                                                                          {
+                                                                            Add Ti42 an
+                                                                          }
+                                                                        }
+                                                                        IN
+                                                                        {
+                                                                           Neg z
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+In
+{
+  Let
+  (
+    INT
+  )
+  {
+    Let
+    (
+      INT
+    )
+    {
+      Int 1
+    }
+    IN
+    {
+      Let
+      (
+        INT
+      )
+      {
+        Int 2
+      }
+      IN
+      {
+        Let
+        (
+          INT
+        )
+        {
+          Int 3
+        }
+        IN
+        {
+          Let
+          (
+            INT
+          )
+          {
+            Int 4
+          }
+          IN
+          {
+            App f
+              Ti1
+              Ti2
+              Ti3
+              Ti4
+          }
+        }
+      }
+    }
+  }
+  IN
+  {
+    ExtFunApp print_int
+    Ti5
+  }
+}

@@ -1,0 +1,59 @@
+LET REC getx v
+  LET TUPLE x y z
+    VAR v
+  IN
+    VAR x
+IN
+  LET REC gety v
+    LET TUPLE x y z
+      VAR v
+    IN
+      VAR y
+  IN
+    LET REC getz v
+      LET TUPLE x y z
+        VAR v
+      IN
+        VAR z
+    IN
+      LET REC inprod v1 v2
+        FADD
+          FADD
+            FMUL
+              APP
+                VAR getx
+                VAR v1
+              APP
+                VAR getx
+                VAR v2
+            FMUL
+              APP
+                VAR gety
+                VAR v1
+              APP
+                VAR gety
+                VAR v2
+          FMUL
+            APP
+              VAR getz
+              VAR v1
+            APP
+              VAR getz
+              VAR v2
+      IN
+        APP
+          VAR print_int
+          APP
+            VAR truncate
+            FMUL
+              FLOAT 1000000.000000
+              APP
+                VAR inprod
+                TUPLE
+                  FLOAT 1.000000
+                  FLOAT 2.000000
+                  FLOAT 3.000000
+                TUPLE
+                  FLOAT 4.000000
+                  FLOAT 5.000000
+                  FLOAT 6.000000

@@ -1,0 +1,36 @@
+LET REC ack x y
+  IF
+    LE
+      VAR x
+      INT 0
+    ADD
+      VAR y
+      INT 1
+    IF
+      LE
+        VAR y
+        INT 0
+      APP
+        VAR ack
+        SUB
+          VAR x
+          INT 1
+        INT 1
+      APP
+        VAR ack
+        SUB
+          VAR x
+          INT 1
+        APP
+          VAR ack
+          VAR x
+          SUB
+            VAR y
+            INT 1
+IN
+  APP
+    VAR print_int
+    APP
+      VAR ack
+      INT 3
+      INT 10
