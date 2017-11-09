@@ -29,6 +29,7 @@ type token =
   | SEMICOLON
   | LPAREN
   | RPAREN
+  | LINEBREAK
   | EOF
 
 val exp :

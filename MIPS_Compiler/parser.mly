@@ -2,6 +2,8 @@
 (* parserが利用する変数、関数、型などの定義 *)
 open Syntax
 let addtyp x = (x, Type.gentyp ())
+let linenumber = ref 0 ;;
+Parsing.set_trace false
 %}
 
 /* (* 字句を表すデータ型の定義 (caml2html: parser_token) *) */
@@ -35,6 +37,7 @@ let addtyp x = (x, Type.gentyp ())
 %token SEMICOLON
 %token LPAREN
 %token RPAREN
+%token LINEBREAK
 %token EOF
 
 /* (* 優先順位とassociativityの定義（低い方から高い方へ） (caml2html: parser_prior) *) */
@@ -138,9 +141,10 @@ exp: /* (* 一般の式 (caml2html: parser_exp) *) */
     { Array($2, $3) }
 | error
     { failwith
-        (Printf.sprintf "parse error near characters %d-%d"
+        (Printf.sprintf "parse error near characters %d-%d on line %d"
            (Parsing.symbol_start ())
-           (Parsing.symbol_end ())) }
+           (Parsing.symbol_end ())
+           ((Parsing.symbol_start_pos ()).pos_lnum - 1)) }
 
 fundef:
 | IDENT formal_args EQUAL exp
