@@ -678,7 +678,7 @@ let yyact = [|
         (Printf.sprintf "parse error near characters %d-%d on line %d"
            (Parsing.symbol_start ())
            (Parsing.symbol_end ())
-           ((Parsing.symbol_start_pos ()).pos_lnum - 1)) )
+           ((Parsing.symbol_start_pos ()).pos_lnum)) )
 # 683 "parser.ml"
                : Syntax.t))
 ; (fun __caml_parser_env ->

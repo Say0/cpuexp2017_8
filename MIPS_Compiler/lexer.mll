@@ -92,8 +92,14 @@ rule token = parse
            (Lexing.lexeme lexbuf)
            (Lexing.lexeme_start lexbuf)
            (Lexing.lexeme_end lexbuf)
-           ((Lexing.lexeme_start_p lexbuf).pos_lnum - 1))}
+           ((Lexing.lexeme_start_p lexbuf).pos_lnum))}
 and comment = parse
+| '\n'
+    { lexbuf.Lexing.lex_curr_p <- { lexbuf.Lexing.lex_curr_p with
+				Lexing.pos_lnum = lexbuf.Lexing.lex_curr_p.Lexing.pos_lnum + 1 }; comment lexbuf}
+| '\r'
+    { lexbuf.Lexing.lex_curr_p <- { lexbuf.Lexing.lex_curr_p with
+				Lexing.pos_lnum = lexbuf.Lexing.lex_curr_p.Lexing.pos_lnum + 1 }; comment lexbuf}
 | "*)"
     { () }
 | "(*"

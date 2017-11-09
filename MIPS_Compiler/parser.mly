@@ -144,7 +144,7 @@ exp: /* (* 一般の式 (caml2html: parser_exp) *) */
         (Printf.sprintf "parse error near characters %d-%d on line %d"
            (Parsing.symbol_start ())
            (Parsing.symbol_end ())
-           ((Parsing.symbol_start_pos ()).pos_lnum - 1)) }
+           ((Parsing.symbol_start_pos ()).pos_lnum)) }
 
 fundef:
 | IDENT formal_args EQUAL exp
