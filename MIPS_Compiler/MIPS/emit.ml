@@ -18,7 +18,8 @@ let savef x =
   if not (List.mem x !stackmap) then
     (let pad =
       if List.length !stackmap mod 2 = 0 then [] else [Id.gentmp Type.Int] in
-    stackmap := !stackmap @ pad @ [x; x])
+      stackmap := !stackmap @ pad @ [x; x])
+    (*stackmap := !stackmap @ pad @ [x; x])*)
 let locate x =
   let rec loc = function
     | [] -> []
@@ -329,8 +330,8 @@ and g'_non_tail_if oc condi dest e1 e2 b bn =
   Printf.fprintf oc "%s:\n" b_else;
   stackset := stackset_back;
   (match condi with
-  | Z _ -> g oc (dest, e2)
-  | F _ -> g oc (dest, e1));
+  | Z _ -> g oc (dest, e1)
+  | F _ -> g oc (dest, e2));
   Printf.fprintf oc "%s:\n" b_cont;
   let stackset2 = !stackset in
   stackset := S.inter stackset1 stackset2
@@ -352,25 +353,19 @@ and g'_args oc x_reg_cl ys zs =
     (fun (z, fr) -> Printf.fprintf oc "\tfmov\t%s, %s\n" (reg fr) (reg z))
     (shuffle reg_fsw zfrs)
 and g'_mul oc x y z =
-  (*let multname = Id.genid (b ^ "mult") in
-  (match z with
-  | C(l) -> Printf.fprintf oc "\taddi\t%s, r0, %d\n" (reg reg_tmp) l
-  | V(l) -> Printf.fprintf oc "\taddi\t%s, %s, r0\n" (reg reg_tmp) (reg l));
-  Printf.fprintf oc "%s:\n" multname;
-  Printf.fprintf oc "%s:\n" *)
   match z with
   | C(l) -> let resnum = modder l 0 in
-            if resnum = -1 then ()
-            else if resnum = 0 then ()
+            if resnum = -1 then Printf.fprintf oc "#nop\n"
+            else if resnum = 0 then Printf.fprintf oc "#nop\n" 
             else Printf.fprintf oc "\tsll\t%s, %s, %d\n" (reg x) (reg y) resnum
-  | V(l) -> ()
+  | V(l) -> Printf.fprintf oc "#nop\n"
 and g'_div oc x y z =
   match z with
   | C(l) -> let resnum = modder l 0 in
-            if resnum = -1 then ()
-            else if resnum = 0 then ()
+            if resnum = -1 then Printf.fprintf oc "#nop\n"
+            else if resnum = 0 then Printf.fprintf oc "#nop\n"
             else Printf.fprintf oc "\tsrl\t%s, %s, %d\n" (reg x) (reg y) resnum
-  | V(l) -> ()
+  | V(l) -> Printf.fprintf oc "#nop\n"
 and modder z h =
   if z = 0 then h
   else if z mod 2 = 0 then modder (z / 2) (h + 1)
