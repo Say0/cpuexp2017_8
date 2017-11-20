@@ -351,8 +351,23 @@ and g'_args oc x_reg_cl ys zs =
     (fun (z, fr) -> Printf.fprintf oc "\tfmov\t%s, %s\n" (reg fr) (reg z))
     (shuffle reg_fsw zfrs)
 and g'_mul oc x y z =
-  let multname = Id.genid (b ^ "mult") in
-  Printf.fprintf oc 
+  (*let multname = Id.genid (b ^ "mult") in
+  (match z with
+  | C(l) -> Printf.fprintf oc "\taddi\t%s, r0, %d\n" (reg reg_tmp) l
+  | V(l) -> Printf.fprintf oc "\taddi\t%s, %s, r0\n" (reg reg_tmp) (reg l));
+  Printf.fprintf oc "%s:\n" multname;
+  Printf.fprintf oc "%s:\n" *)
+  match z with
+  | C(l) -> let resnum = modder l 0 in
+            if resnum = -1 then ()
+            else if resnum = 0 then ()
+            else Printf.fprintf oc "\tsll\t%s, %s, %d\n" (reg x) (reg y) resnum
+  | V(l) -> ()
+
+and modder z h =
+  if z = 0 then h
+  else if z mod 2 = 0 then modder (z / 2) (h + 1)
+  else -1 
 
 
 let h oc { name = Id.L(x); args = _; fargs = _; body = e; ret = _ } =

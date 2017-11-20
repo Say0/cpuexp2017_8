@@ -116,7 +116,7 @@ and eq_equals eqf e =
   | Sub (x1, x2) ->
     (match e with
     | Sub (y1, y2) -> if x1 = y1 && x2 = y2 then true else false
-    | _ -> false)]
+    | _ -> false)
   | Mul (x1, x2) ->
     (match e with
     | Mul (y1, y2) -> if x1 = y1 && x2 = y2 then true else false
