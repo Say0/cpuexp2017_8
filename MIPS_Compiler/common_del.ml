@@ -8,6 +8,7 @@ let rec eq_isvalid e =
   | Neg _ -> true
   | Add _ -> true
   | Sub _ -> true
+  | Mul _ -> true
   | FNeg _ -> true
   | FAdd _ -> true
   | FSub _ -> true
@@ -115,6 +116,10 @@ and eq_equals eqf e =
   | Sub (x1, x2) ->
     (match e with
     | Sub (y1, y2) -> if x1 = y1 && x2 = y2 then true else false
+    | _ -> false)]
+  | Mul (x1, x2) ->
+    (match e with
+    | Mul (y1, y2) -> if x1 = y1 && x2 = y2 then true else false
     | _ -> false)
   | FAdd (x1, x2) ->
     (match e with
@@ -230,6 +235,7 @@ let rec g eqs e =
   | Neg name -> Neg name
   | Add (name, name2) -> Add (name, name2)
   | Sub (name, name2) -> Sub (name, name2)
+  | Mul (name, name2) -> Mul (name, name2)
   | FNeg name -> FNeg name
   | FAdd (name, name2) -> FAdd (name, name2)
   | FSub (name, name2) -> FSub (name, name2)

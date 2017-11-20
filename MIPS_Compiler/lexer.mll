@@ -38,6 +38,8 @@ rule token = parse
     { MINUS }
 | '+' (* +.より後回しにしなくても良い? 最長一致? *)
     { PLUS }
+| '*'
+    { AST }
 | "-."
     { MINUS_DOT }
 | "+."
