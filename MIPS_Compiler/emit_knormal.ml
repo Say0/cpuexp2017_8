@@ -8,6 +8,7 @@ let rec emit_sub oc indents = function
   | Add (name, name2) -> Printf.fprintf oc "%sAdd %s %s\n" indents name name2
   | Sub (name, name2) -> Printf.fprintf oc "%sSub %s %s\n" indents name name2
   | Mul (name, name2) -> Printf.fprintf oc "%sMul %s %s\n" indents name name2
+  | Div (name, name2) -> Printf.fprintf oc "%sDiv %s %s\n" indents name name2
   | FNeg name -> Printf.fprintf oc "%sFNeg %s\n" indents name
   | FAdd (name, name2) -> Printf.fprintf oc "%sFAdd %s %s\n" indents name name2
   | FSub (name, name2) -> Printf.fprintf oc "%sFSub %s %s\n" indents name name2

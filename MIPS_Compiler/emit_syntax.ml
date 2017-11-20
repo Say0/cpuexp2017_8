@@ -26,6 +26,11 @@ let rec emit_sub oc indents = function
     let indented = indents ^ "  " in
       emit_sub oc indented e1;
       emit_sub oc indented e2
+  | Div(e1, e2) ->
+    Printf.fprintf oc "%sDIV\n" indents;
+    let indented = indents ^ "  " in
+      emit_sub oc indented e1;
+      emit_sub oc indented e2
   | FNeg(e) ->
     Printf.fprintf oc "%sFNEG\n" indents;
     let indented = indents ^ "  " in

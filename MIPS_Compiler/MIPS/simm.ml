@@ -18,6 +18,8 @@ and g' env = function (* 各命令の16bit即値最適化 (caml2html: simm13_gpr
   | Sub(x, V(y)) when M.mem y env -> Sub(x, C(M.find y env))
   | Mul(x, V(y)) when M.mem x env -> Mul(y, C(M.find x env))
   | Mul(x, V(y)) when M.mem y env -> Mul(x, C(M.find y env))
+  | Div(x, V(y)) when M.mem x env -> Div(y, C(M.find x env))
+  | Div(x, V(y)) when M.mem y env -> Div(x, C(M.find y env))
   | Slw(x, V(y)) when M.mem y env -> Slw(x, C(M.find y env))
   | Lwz(x, V(y)) when M.mem y env -> Lwz(x, C(M.find y env))
   | Stw(x, y, V(z)) when M.mem z env -> Stw(x, y, C(M.find z env))
