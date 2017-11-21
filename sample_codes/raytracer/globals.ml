@@ -1,90 +1,88 @@
-open MiniMLRuntime;;
+(**************** ï¿½ï¿½ï¿½ï¿½ï¿½Ð¥ï¿½ï¿½Ñ¿ï¿½ï¿½ï¿½ï¿½ï¿½ ****************)
 
-(**************** ¥°¥í¡¼¥Ð¥ëÊÑ¿ô¤ÎÀë¸À ****************)
+(* ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¸Ä¿ï¿½ *)
+let n_objects = create_array 1 0 in
 
-(* ¥ª¥Ö¥¸¥§¥¯¥È¤Î¸Ä¿ô *)
-let n_objects = create_array 1 0
-
-(* ¥ª¥Ö¥¸¥§¥¯¥È¤Î¥Ç¡¼¥¿¤òÆþ¤ì¤ë¥Ù¥¯¥È¥ë¡ÊºÇÂç60¸Ä¡Ë*)
+(* ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¥Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¥ï¿½ï¿½È¥ï¿½Êºï¿½ï¿½ï¿½60ï¿½Ä¡ï¿½*)
 let objects = 
   let dummy = create_array 0 0.0 in
-  create_array 60 (0, 0, 0, 0, dummy, dummy, false, dummy, dummy, dummy, dummy)
+  create_array 60 (0, 0, 0, 0, dummy, dummy, false, dummy, dummy, dummy, dummy) in
 
-(* Screen ¤ÎÃæ¿´ºÂÉ¸ *)
-let screen = create_array 3 0.0
-(* »ëÅÀ¤ÎºÂÉ¸ *)
-let viewpoint = create_array 3 0.0
-(* ¸÷¸»Êý¸þ¥Ù¥¯¥È¥ë (Ã±°Ì¥Ù¥¯¥È¥ë) *)
-let light = create_array 3 0.0
-(* ¶ÀÌÌ¥Ï¥¤¥é¥¤¥È¶¯ÅÙ (É¸½à=255) *)
-let beam = create_array 1 255.0
-(* AND ¥Í¥Ã¥È¥ï¡¼¥¯¤òÊÝ»ý *)
-let and_net = create_array 50 (create_array 1 (-1))
-(* OR ¥Í¥Ã¥È¥ï¡¼¥¯¤òÊÝ»ý *)
-let or_net = create_array 1 (create_array 1 (and_net.(0)))
+(* Screen ï¿½ï¿½ï¿½æ¿´ï¿½ï¿½É¸ *)
+let screen = create_array 3 0.0 in
+(* ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½É¸ *)
+let viewpoint = create_array 3 0.0 in
+(* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¥ï¿½ï¿½È¥ï¿½ (Ã±ï¿½Ì¥Ù¥ï¿½ï¿½È¥ï¿½) *)
+let light = create_array 3 0.0 in
+(* ï¿½ï¿½ï¿½Ì¥Ï¥ï¿½ï¿½é¥¤ï¿½È¶ï¿½ï¿½ï¿½ (É¸ï¿½ï¿½=255) *)
+let beam = create_array 1 255.0 in
+(* AND ï¿½Í¥Ã¥È¥ï¡¼ï¿½ï¿½ï¿½ï¿½ï¿½Ý»ï¿½ *)
+let and_net = create_array 50 (create_array 1 (-1)) in
+(* OR ï¿½Í¥Ã¥È¥ï¡¼ï¿½ï¿½ï¿½ï¿½ï¿½Ý»ï¿½ *)
+let or_net = create_array 1 (create_array 1 (and_net.(0))) in
 
-(* °Ê²¼¡¢¸òº¹È½Äê¥ë¡¼¥Á¥ó¤ÎÊÖ¤êÃÍ³ÊÇ¼ÍÑ *)
-(* solver ¤Î¸òÅÀ ¤Î t ¤ÎÃÍ *)
-let solver_dist = create_array 1 0.0
-(* ¸òÅÀ¤ÎÄ¾ÊýÂÎÉ½ÌÌ¤Ç¤ÎÊý¸þ *)
-let intsec_rectside = create_array 1 0
-(* È¯¸«¤·¤¿¸òÅÀ¤ÎºÇ¾®¤Î t *)
-let tmin = create_array 1 (1000000000.0)
-(* ¸òÅÀ¤ÎºÂÉ¸ *)
-let intersection_point = create_array 3 0.0
-(* ¾×ÆÍ¤·¤¿¥ª¥Ö¥¸¥§¥¯¥ÈÈÖ¹æ *)
-let intersected_object_id = create_array 1 0
-(* Ë¡Àþ¥Ù¥¯¥È¥ë *)
-let nvector = create_array 3 0.0
-(* ¸òÅÀ¤Î¿§ *)
-let texture_color = create_array 3 0.0
+(* ï¿½Ê²ï¿½ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½ë¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Í³ï¿½Ç¼ï¿½ï¿½ *)
+(* solver ï¿½Î¸ï¿½ï¿½ï¿½ ï¿½ï¿½ t ï¿½ï¿½ï¿½ï¿½ *)
+let solver_dist = create_array 1 0.0 in
+(* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½É½ï¿½Ì¤Ç¤ï¿½ï¿½ï¿½ï¿½ï¿½ *)
+let intsec_rectside = create_array 1 0 in
+(* È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎºÇ¾ï¿½ï¿½ï¿½ t *)
+let tmin = create_array 1 (1000000000.0) in
+(* ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½É¸ *)
+let intersection_point = create_array 3 0.0 in
+(* ï¿½ï¿½ï¿½Í¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ *)
+let intersected_object_id = create_array 1 0 in
+(* Ë¡ï¿½ï¿½ï¿½Ù¥ï¿½ï¿½È¥ï¿½ *)
+let nvector = create_array 3 0.0 in
+(* ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ *)
+let texture_color = create_array 3 0.0 in
 
-(* ·×»»Ãæ¤Î´ÖÀÜ¼õ¸÷¶¯ÅÙ¤òÊÝ»ý *)
-let diffuse_ray = create_array 3 0.0
-(* ¥¹¥¯¥ê¡¼¥ó¾å¤ÎÅÀ¤ÎÌÀ¤ë¤µ *)
-let rgb = create_array 3 0.0
+(* ï¿½×»ï¿½ï¿½ï¿½Î´ï¿½ï¿½Ü¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¤ï¿½ï¿½Ý»ï¿½ *)
+let diffuse_ray = create_array 3 0.0 in
+(* ï¿½ï¿½ï¿½ï¿½ï¿½ê¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¤µ *)
+let rgb = create_array 3 0.0 in
 
-(* ²èÁü¥µ¥¤¥º *)
-let image_size = create_array 2 0
-(* ²èÁü¤ÎÃæ¿´ = ²èÁü¥µ¥¤¥º¤ÎÈ¾Ê¬ *)
-let image_center = create_array 2 0
-(* 3¼¡¸µ¾å¤Î¥Ô¥¯¥»¥ë´Ö³Ö *)
-let scan_pitch = create_array 1 0.0
+(* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ *)
+let image_size = create_array 2 0 in
+(* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¿´ = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾Ê¬ *)
+let image_center = create_array 2 0 in
+(* 3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¥Ô¥ï¿½ï¿½ï¿½ï¿½ï¿½Ö³ï¿½ *)
+let scan_pitch = create_array 1 0.0 in
 
-(* judge_intersection¤ËÍ¿¤¨¤ë¸÷Àþ»ÏÅÀ *)
-let startp = create_array 3 0.0
-(* judge_intersection_fast¤ËÍ¿¤¨¤ë¸÷Àþ»ÏÅÀ *)
-let startp_fast = create_array 3 0.0
+(* judge_intersectionï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ *)
+let startp = create_array 3 0.0 in
+(* judge_intersection_fastï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ *)
+let startp_fast = create_array 3 0.0 in
 
-(* ²èÌÌ¾å¤Îx,y,z¼´¤Î3¼¡¸µ¶õ´Ö¾å¤ÎÊý¸þ *)
-let screenx_dir = create_array 3 0.0
-let screeny_dir = create_array 3 0.0
-let screenz_dir = create_array 3 0.0
+(* ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½x,y,zï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ *)
+let screenx_dir = create_array 3 0.0 in
+let screeny_dir = create_array 3 0.0 in
+let screenz_dir = create_array 3 0.0 in
 
-(* Ä¾ÀÜ¸÷ÄÉÀ×¤Ç»È¤¦¸÷Êý¸þ¥Ù¥¯¥È¥ë *)
-let ptrace_dirvec  = create_array 3 0.0
+(* Ä¾ï¿½Ü¸ï¿½ï¿½ï¿½ï¿½×¤Ç»È¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¥ï¿½ï¿½È¥ï¿½ *)
+let ptrace_dirvec  = create_array 3 0.0 in
 
-(* ´ÖÀÜ¸÷¥µ¥ó¥×¥ê¥ó¥°¤Ë»È¤¦Êý¸þ¥Ù¥¯¥È¥ë *)
+(* ï¿½ï¿½ï¿½Ü¸ï¿½ï¿½ï¿½ï¿½ï¿½×¥ï¿½ó¥°¤Ë»È¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¥ï¿½ï¿½È¥ï¿½ *)
 let dirvecs = 
   let dummyf = create_array 0 0.0 in
   let dummyff = create_array 0 dummyf in
   let dummy_vs = create_array 0 (dummyf, dummyff) in
-  create_array 5 dummy_vs
+  create_array 5 dummy_vs in
 
-(* ¸÷¸»¸÷¤ÎÁ°½èÍýºÑ¤ßÊý¸þ¥Ù¥¯¥È¥ë *)
+(* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¥ï¿½ï¿½È¥ï¿½ *)
 let light_dirvec =
   let dummyf2 = create_array 0 0.0 in
   let v3 = create_array 3 0.0 in
   let consts = create_array 60 dummyf2 in
-  (v3, consts)
+  (v3, consts) in
 
-(* ¶ÀÊ¿ÌÌ¤ÎÈ¿¼Í¾ðÊó *)
+(* ï¿½ï¿½Ê¿ï¿½Ì¤ï¿½È¿ï¿½Í¾ï¿½ï¿½ï¿½ *)
 let reflections =
   let dummyf3 = create_array 0 0.0 in
   let dummyff3 = create_array 0 dummyf3 in
   let dummydv = (dummyf3, dummyff3) in
-  create_array 180 (0, dummydv, 0.0)
+  create_array 180 (0, dummydv, 0.0) in
 
-(* reflections¤ÎÍ­¸ú¤ÊÍ×ÁÇ¿ô *) 
+(* reflectionsï¿½ï¿½Í­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ *) 
 
-let n_reflections = create_array 1 0
+let n_reflections = create_array 1 0 in ()
