@@ -28,6 +28,8 @@ let rec deref_term = function
   | Neg(e) -> Neg(deref_term e)
   | Add(e1, e2) -> Add(deref_term e1, deref_term e2)
   | Sub(e1, e2) -> Sub(deref_term e1, deref_term e2)
+  | Mul(e1, e2) -> Mul(deref_term e1, deref_term e2)
+  | Div(e1, e2) -> Div(deref_term e1, deref_term e2)
   | Eq(e1, e2) -> Eq(deref_term e1, deref_term e2)
   | LE(e1, e2) -> LE(deref_term e1, deref_term e2)
   | FNeg(e) -> FNeg(deref_term e)
@@ -76,12 +78,13 @@ let rec unify t1 t2 = (* 型が合うように、型変数への代入をする 
   | Type.Var({ contents = None } as r1), _ -> (* 一方が未定義の型変数の場合 (caml2html: typing_undef) *)
       if occur r1 t2 then raise (Unify(t1, t2));
       r1 := Some(t2)
-  | _, Type.Var({ contents = None } as r2) ->
+  | _, Type.Var({ contents = None } as r2) -> 
       if occur r2 t1 then raise (Unify(t1, t2));
       r2 := Some(t1)
-  | _, _ -> raise (Unify(t1, t2))
+  | _, _ -> Emit_type.emit stdout t1 ""; Emit_type.emit stdout t2 ""; raise (Unify(t1, t2))
 
 let rec g env e = (* 型推論ルーチン (caml2html: typing_g) *)
+  (*Emit_syntax.emit stdout e;*)
   try
     match e with
     | Unit -> Type.Unit

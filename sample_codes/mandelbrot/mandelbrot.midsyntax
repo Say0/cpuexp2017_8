@@ -1,0 +1,136 @@
+LET REC dbl f
+  FADD
+    VAR f
+    VAR f
+IN
+  LET REC yloop y
+    IF
+      LE
+        INT 400
+        VAR y
+      UNIT
+      LET REC xloop x y
+        IF
+          LE
+            INT 400
+            VAR x
+          UNIT
+          LET cr
+            FSUB
+              FDIV
+                APP
+                  VAR dbl
+                  APP
+                    VAR float_of_int
+                    VAR x
+                FLOAT 400.000000
+              FLOAT 1.500000
+          IN
+            LET ci
+              FSUB
+                FDIV
+                  APP
+                    VAR dbl
+                    APP
+                      VAR float_of_int
+                      VAR y
+                  FLOAT 400.000000
+                FLOAT 1.000000
+            IN
+              LET REC iloop i zr zi zr2 zi2 cr ci
+                IF
+                  EQ
+                    VAR i
+                    INT 0
+                  APP
+                    VAR print_int
+                    INT 1
+                  LET tr
+                    FADD
+                      FSUB
+                        VAR zr2
+                        VAR zi2
+                      VAR cr
+                  IN
+                    LET ti
+                      FADD
+                        FMUL
+                          APP
+                            VAR dbl
+                            VAR zr
+                          VAR zi
+                        VAR ci
+                    IN
+                      LET zr
+                        VAR tr
+                      IN
+                        LET zi
+                          VAR ti
+                        IN
+                          LET zr2
+                            FMUL
+                              VAR zr
+                              VAR zr
+                          IN
+                            LET zi2
+                              FMUL
+                                VAR zi
+                                VAR zi
+                            IN
+                              IF
+                                NOT
+                                  LE
+                                    FADD
+                                      VAR zr2
+                                      VAR zi2
+                                    FMUL
+                                      FLOAT 2.000000
+                                      FLOAT 2.000000
+                                APP
+                                  VAR print_int
+                                  INT 0
+                                APP
+                                  VAR iloop
+                                  SUB
+                                    VAR i
+                                    INT 1
+                                  VAR zr
+                                  VAR zi
+                                  VAR zr2
+                                  VAR zi2
+                                  VAR cr
+                                  VAR ci
+              IN
+                LET Tu1
+                  APP
+                    VAR iloop
+                    INT 1000
+                    FLOAT 0.000000
+                    FLOAT 0.000000
+                    FLOAT 0.000000
+                    FLOAT 0.000000
+                    VAR cr
+                    VAR ci
+                IN
+                  APP
+                    VAR xloop
+                    ADD
+                      VAR x
+                      INT 1
+                    VAR y
+      IN
+        LET Tu2
+          APP
+            VAR xloop
+            INT 0
+            VAR y
+        IN
+          APP
+            VAR yloop
+            ADD
+              VAR y
+              INT 1
+  IN
+    APP
+      VAR yloop
+      INT 0

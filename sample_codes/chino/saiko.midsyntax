@@ -1,0 +1,11 @@
+LET x
+  ARRAY
+    INT 4
+    INT 0
+IN
+  LET y
+    ARRAY
+      INT 4
+      FLOAT 0.000000
+  IN
+    UNIT

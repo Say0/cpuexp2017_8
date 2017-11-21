@@ -50,8 +50,8 @@ let regs = (* Array.init 27 (fun i -> Printf.sprintf "_R_%d" i) *)
      "%r11"; "%r12"; "%r13"; "%r14"; "%r15"; "%r16"; "%r17"; "%r18";
      "%r19"; "%r20"; "%r21"; "%r22"; "%r23"; "%r24"; "%r25"; "%r26"; |]
 let fregs = Array.init 30 (fun i -> Printf.sprintf "%%f%d" (i + 1)) (*f31はcondition register*)
-let allregs = Array.to_list regs
-let allfregs = Array.to_list fregs
+let allregs = (Array.to_list regs) @ ["%r0"; "%r1"; "%r27"; "%r28"; "%r29"; "%r30"; "%r31"]
+let allfregs = Array.to_list fregs @ ["%f0"; "%f31"]
 let reg_cl = "%r28"(*regs.(Array.length regs - 1)*) (* closure address (caml2html: sparcasm_regcl) *)
 let reg_sw = "%r1"(*regs.(Array.length regs - 2)*) (* temporary for swap *)
 let reg_fsw = "%f0"(*fregs.(Array.length fregs - 1)*) (* temporary for swap *)

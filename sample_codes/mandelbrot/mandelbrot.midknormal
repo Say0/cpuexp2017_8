@@ -1,0 +1,635 @@
+LetRec
+[ dbl :
+  FUN
+  (
+    FLOAT
+  )
+    FLOAT
+]
+(
+  [ f :
+    FLOAT
+  ]
+)
+{
+  FAdd f f
+}
+In
+{
+  LetRec
+  [ yloop :
+    FUN
+    (
+      INT
+    )
+      UNIT
+  ]
+  (
+    [ y :
+      INT
+    ]
+  )
+  {
+    Let
+    (
+      Ti4
+      INT
+    )
+    {
+      Int 400
+    }
+    IN
+    {
+      IfLE Ti4 y
+        Unit
+        LetRec
+        [ xloop :
+          FUN
+          (
+            INT
+            INT
+          )
+            UNIT
+        ]
+        (
+          [ x :
+            INT
+          ]
+          [ y :
+            INT
+          ]
+        )
+        {
+          Let
+          (
+            Ti8
+            INT
+          )
+          {
+            Int 400
+          }
+          IN
+          {
+            IfLE Ti8 x
+              Unit
+              Let
+              (
+                cr
+                FLOAT
+              )
+              {
+                Let
+                (
+                  Td12
+                  FLOAT
+                )
+                {
+                  Let
+                  (
+                    Td10
+                    FLOAT
+                  )
+                  {
+                    Let
+                    (
+                      Td9
+                      FLOAT
+                    )
+                    {
+                      ExtFunApp float_of_int
+                        x
+                    }
+                    IN
+                    {
+                      App dbl
+                        Td9
+                    }
+                  }
+                  IN
+                  {
+                    Let
+                    (
+                      Td11
+                      FLOAT
+                    )
+                    {
+                      Float 400.000000
+                    }
+                    IN
+                    {
+                      FDiv Td10 Td11
+                    }
+                  }
+                }
+                IN
+                {
+                  Let
+                  (
+                    Td13
+                    FLOAT
+                  )
+                  {
+                    Float 1.500000
+                  }
+                  IN
+                  {
+                    FSub Td12 Td13
+                  }
+                }
+              }
+              IN
+              {
+                Let
+                (
+                  ci
+                  FLOAT
+                )
+                {
+                  Let
+                  (
+                    Td17
+                    FLOAT
+                  )
+                  {
+                    Let
+                    (
+                      Td15
+                      FLOAT
+                    )
+                    {
+                      Let
+                      (
+                        Td14
+                        FLOAT
+                      )
+                      {
+                        ExtFunApp float_of_int
+                          y
+                      }
+                      IN
+                      {
+                        App dbl
+                          Td14
+                      }
+                    }
+                    IN
+                    {
+                      Let
+                      (
+                        Td16
+                        FLOAT
+                      )
+                      {
+                        Float 400.000000
+                      }
+                      IN
+                      {
+                        FDiv Td15 Td16
+                      }
+                    }
+                  }
+                  IN
+                  {
+                    Let
+                    (
+                      Td18
+                      FLOAT
+                    )
+                    {
+                      Float 1.000000
+                    }
+                    IN
+                    {
+                      FSub Td17 Td18
+                    }
+                  }
+                }
+                IN
+                {
+                  LetRec
+                  [ iloop :
+                    FUN
+                    (
+                      INT
+                      FLOAT
+                      FLOAT
+                      FLOAT
+                      FLOAT
+                      FLOAT
+                      FLOAT
+                    )
+                      UNIT
+                  ]
+                  (
+                    [ i :
+                      INT
+                    ]
+                    [ zr :
+                      FLOAT
+                    ]
+                    [ zi :
+                      FLOAT
+                    ]
+                    [ zr2 :
+                      FLOAT
+                    ]
+                    [ zi2 :
+                      FLOAT
+                    ]
+                    [ cr :
+                      FLOAT
+                    ]
+                    [ ci :
+                      FLOAT
+                    ]
+                  )
+                  {
+                    Let
+                    (
+                      Ti26
+                      INT
+                    )
+                    {
+                      Int 0
+                    }
+                    IN
+                    {
+                      IfEq i Ti26
+                        Let
+                        (
+                          Ti27
+                          INT
+                        )
+                        {
+                          Int 1
+                        }
+                        IN
+                        {
+                          ExtFunApp print_int
+                            Ti27
+                        }
+                        Let
+                        (
+                          tr
+                          FLOAT
+                        )
+                        {
+                          Let
+                          (
+                            Td28
+                            FLOAT
+                          )
+                          {
+                            FSub zr2 zi2
+                          }
+                          IN
+                          {
+                            FAdd Td28 cr
+                          }
+                        }
+                        IN
+                        {
+                          Let
+                          (
+                            ti
+                            FLOAT
+                          )
+                          {
+                            Let
+                            (
+                              Td30
+                              FLOAT
+                            )
+                            {
+                              Let
+                              (
+                                Td29
+                                FLOAT
+                              )
+                              {
+                                App dbl
+                                  zr
+                              }
+                              IN
+                              {
+                                FMul Td29 zi
+                              }
+                            }
+                            IN
+                            {
+                              FAdd Td30 ci
+                            }
+                          }
+                          IN
+                          {
+                            Let
+                            (
+                              zr
+                              FLOAT
+                            )
+                            {
+                               Var tr
+                            }
+                            IN
+                            {
+                              Let
+                              (
+                                zi
+                                FLOAT
+                              )
+                              {
+                                 Var ti
+                              }
+                              IN
+                              {
+                                Let
+                                (
+                                  zr2
+                                  FLOAT
+                                )
+                                {
+                                  FMul zr zr
+                                }
+                                IN
+                                {
+                                  Let
+                                  (
+                                    zi2
+                                    FLOAT
+                                  )
+                                  {
+                                    FMul zi zi
+                                  }
+                                  IN
+                                  {
+                                    Let
+                                    (
+                                      Td31
+                                      FLOAT
+                                    )
+                                    {
+                                      FAdd zr2 zi2
+                                    }
+                                    IN
+                                    {
+                                      Let
+                                      (
+                                        Td34
+                                        FLOAT
+                                      )
+                                      {
+                                        Let
+                                        (
+                                          Td32
+                                          FLOAT
+                                        )
+                                        {
+                                          Float 2.000000
+                                        }
+                                        IN
+                                        {
+                                          Let
+                                          (
+                                            Td33
+                                            FLOAT
+                                          )
+                                          {
+                                            Float 2.000000
+                                          }
+                                          IN
+                                          {
+                                            FMul Td32 Td33
+                                          }
+                                        }
+                                      }
+                                      IN
+                                      {
+                                        IfLE Td31 Td34
+                                          Let
+                                          (
+                                            Ti36
+                                            INT
+                                          )
+                                          {
+                                            Let
+                                            (
+                                              Ti35
+                                              INT
+                                            )
+                                            {
+                                              Int 1
+                                            }
+                                            IN
+                                            {
+                                              Sub i Ti35
+                                            }
+                                          }
+                                          IN
+                                          {
+                                            App iloop
+                                              Ti36
+                                              zr
+                                              zi
+                                              zr2
+                                              zi2
+                                              cr
+                                              ci
+                                          }
+                                          Let
+                                          (
+                                            Ti37
+                                            INT
+                                          )
+                                          {
+                                            Int 0
+                                          }
+                                          IN
+                                          {
+                                            ExtFunApp print_int
+                                              Ti37
+                                          }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                    }
+                  }
+                  In
+                  {
+                    Let
+                    (
+                      Tu1
+                      UNIT
+                    )
+                    {
+                      Let
+                      (
+                        Ti19
+                        INT
+                      )
+                      {
+                        Int 1000
+                      }
+                      IN
+                      {
+                        Let
+                        (
+                          Td20
+                          FLOAT
+                        )
+                        {
+                          Float 0.000000
+                        }
+                        IN
+                        {
+                          Let
+                          (
+                            Td21
+                            FLOAT
+                          )
+                          {
+                            Float 0.000000
+                          }
+                          IN
+                          {
+                            Let
+                            (
+                              Td22
+                              FLOAT
+                            )
+                            {
+                              Float 0.000000
+                            }
+                            IN
+                            {
+                              Let
+                              (
+                                Td23
+                                FLOAT
+                              )
+                              {
+                                Float 0.000000
+                              }
+                              IN
+                              {
+                                App iloop
+                                  Ti19
+                                  Td20
+                                  Td21
+                                  Td22
+                                  Td23
+                                  cr
+                                  ci
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    IN
+                    {
+                      Let
+                      (
+                        Ti25
+                        INT
+                      )
+                      {
+                        Let
+                        (
+                          Ti24
+                          INT
+                        )
+                        {
+                          Int 1
+                        }
+                        IN
+                        {
+                          Add x Ti24
+                        }
+                      }
+                      IN
+                      {
+                        App xloop
+                          Ti25
+                          y
+                      }
+                    }
+                  }
+                }
+              }
+          }
+        }
+        In
+        {
+          Let
+          (
+            Tu2
+            UNIT
+          )
+          {
+            Let
+            (
+              Ti5
+              INT
+            )
+            {
+              Int 0
+            }
+            IN
+            {
+              App xloop
+                Ti5
+                y
+            }
+          }
+          IN
+          {
+            Let
+            (
+              Ti7
+              INT
+            )
+            {
+              Let
+              (
+                Ti6
+                INT
+              )
+              {
+                Int 1
+              }
+              IN
+              {
+                Add y Ti6
+              }
+            }
+            IN
+            {
+              App yloop
+                Ti7
+            }
+          }
+        }
+    }
+  }
+  In
+  {
+    Let
+    (
+      Ti3
+      INT
+    )
+    {
+      Int 0
+    }
+    IN
+    {
+      App yloop
+        Ti3
+    }
+  }
+}

@@ -1,0 +1,73 @@
+Let
+(
+  x
+  ARRAY
+    INT
+)
+{
+  Let
+  (
+    Ti1
+    INT
+  )
+  {
+    Int 4
+  }
+  IN
+  {
+    Let
+    (
+      Ti2
+      INT
+    )
+    {
+      Int 0
+    }
+    IN
+    {
+      ExtFunApp create_array
+        Ti1
+        Ti2
+    }
+  }
+}
+IN
+{
+  Let
+  (
+    y
+    ARRAY
+      FLOAT
+  )
+  {
+    Let
+    (
+      Ti3
+      INT
+    )
+    {
+      Int 4
+    }
+    IN
+    {
+      Let
+      (
+        Td4
+        FLOAT
+      )
+      {
+        Float 0.000000
+      }
+      IN
+      {
+        ExtFunApp create_float_array
+          Ti3
+          Td4
+      }
+    }
+  }
+  IN
+  {
+    Unit
+  }
+}
