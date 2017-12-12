@@ -22,11 +22,11 @@ ble_else.24:
 	sw	r2, 4(r29)
 	add	r27, r31, r0
 	add	r2, r3, r0
-	sw	r27, 12(r29)
-	addi	r29, r29, 16
+	sw	r27, 8(r29)
+	addi	r29, r29, 12
 	jal	fib.10
-	addi	r29, r29, -16
-	lw	r27, 12(r29)
+	addi	r29, r29, -12
+	lw	r27, 8(r29)
 	add	r31, r27, r0
 	lw	r3, 4(r29)
 	add	r2, r3, r2
@@ -39,18 +39,18 @@ _min_caml_start: # main entry point
 #	main program starts
 	addi	r2, r2, 30
 	add	r27, r31, r0
-	sw	r27, 4(r29)
-	addi	r29, r29, 8
+	sw	r27, 0(r29)
+	addi	r29, r29, 4
 	jal	fib.10
-	addi	r29, r29, -8
-	lw	r27, 4(r29)
+	addi	r29, r29, -4
+	lw	r27, 0(r29)
 	add	r31, r27, r0
 	add	r27, r31, r0
-	sw	r27, 4(r29)
-	addi	r29, r29, 8
+	sw	r27, 0(r29)
+	addi	r29, r29, 4
 	jal	min_caml_print_int
-	addi	r29, r29, -8
-	lw	r27, 4(r29)
+	addi	r29, r29, -4
+	lw	r27, 0(r29)
 	add	r31, r27, r0
 #	main program ends
 	lw	r29, 0(r29)

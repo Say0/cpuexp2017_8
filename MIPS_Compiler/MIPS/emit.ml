@@ -4,8 +4,8 @@ type ya =
   | Z of Id.t * Asm.id_or_imm
   | F of Id.t * Id.t
 
-external gethi : float -> int32 = "gethi"
-external getlo : float -> int32 = "getlo"
+(*external gethi : float -> int32 = "gethi"
+external getlo : float -> int32 = "getlo"*)
 
 let stackset = ref S.empty (* すでにSaveされた変数の集合 (caml2html: emit_stackset) *)
 let stackmap = ref [] (* Saveされた変数の、スタックにおける位置 (caml2html: emit_stackmap) *)
@@ -109,7 +109,7 @@ and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprim
       save y;
       Printf.fprintf oc "\tsw\t%s, %d(%s)\n" (reg x) (offset y) (reg reg_sp)
   | NonTail(_), Save(x, y) when List.mem x allfregs && not (S.mem y !stackset) ->
-      savef y;
+      save y;(*savef y;*)
       Printf.fprintf oc "\tfsw\t%s, %d(%s)\n" (reg x) (offset y) (reg reg_sp)
   | NonTail(_), Save(x, y) -> assert (S.mem y !stackset); ()
   (* 復帰の仮想命令の実装 (caml2html: emit_restore) *)
@@ -147,11 +147,9 @@ and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprim
   | Tail, IfGE(x, C(y), e1, e2) ->
       g'_tail_if oc (Z (x, C(y))) e1 e2 "bge" "blt"
   | Tail, IfFEq(x, y, e1, e2) ->
-      Printf.fprintf oc "\tfcomp\t%s, %s\n" (reg x) (reg y);
-      g'_tail_if oc (F (x, y)) e1 e2 "fbeq" "fbne"
+      g'_tail_if oc (F (x, y)) e1 e2 "feq" "fne"
   | Tail, IfFLE(x, y, e1, e2) ->
-      Printf.fprintf oc "\tfcomp\t%s, %s\n" (reg x) (reg y);
-      g'_tail_if oc (F (x, y)) e1 e2 "fble" "fbgt"
+      g'_tail_if oc (F (x, y)) e1 e2 "fle" "fgt"
   | NonTail(z), IfEq(x, V(y), e1, e2) ->
       g'_non_tail_if oc (Z (x, V(y))) (NonTail(z)) e1 e2 "beq" "bne"
   | NonTail(z), IfEq(x, C(y), e1, e2) ->
@@ -169,7 +167,7 @@ and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprim
       g'_non_tail_if oc (F (x, y)) (NonTail(z)) e1 e2 "feq" "fne"
   | NonTail(z), IfFLE(x, y, e1, e2) ->
       (*Printf.fprintf oc "\tfcomp\t%s, %s\n" (reg x) (reg y);*)
-      g'_non_tail_if oc (F (x, y)) (NonTail(z)) e1 e2 "fle" "fge"
+      g'_non_tail_if oc (F (x, y)) (NonTail(z)) e1 e2 "fle" "fgt"
   (* 関数呼び出しの仮想命令の実装 (caml2html: emit_call) *)
   | Tail, CallCls(x, ys, zs) -> (* 末尾呼び出し (caml2html: emit_tailcall) *)
       g'_args oc [(x, reg_cl)] ys zs;
@@ -381,17 +379,20 @@ let h oc { name = Id.L(x); args = _; fargs = _; body = e; ret = _ } =
 let f oc (Prog(data, fundefs, e)) =
   Format.eprintf "generating assembly...@.";
   if data <> [] then
-    (Printf.fprintf oc "\t.data\n\t.literal8\n";
+    ((*Printf.fprintf oc "\t.data\n\t.literal8\n";*)
+    Printf.fprintf oc "\t.data\n";
      List.iter
        (fun (Id.L(x), d) ->
-         Printf.fprintf oc "\t.align 3\n";
+         Printf.fprintf oc "\t.align 2\n";
          Printf.fprintf oc "%s:\t # %f\n" x d;
-         Printf.fprintf oc "\t.long\t%ld\n" (gethi d);
-         Printf.fprintf oc "\t.long\t%ld\n" (getlo d))
+         (*Printf.fprintf oc "\t.long\t%ld\n" (gethi d);*)
+         (*Printf.fprintf oc "\t.long\t%ld\n" (getlo d))*)
+         Printf.fprintf oc "\t.long\t%ld\n" (Int32.bits_of_float d))
        data);
   Printf.fprintf oc "\t.text\n";
   Printf.fprintf oc "\t.globl _min_caml_start\n";
   Printf.fprintf oc "\t.align 2\n";
+  Printf.fprintf oc "\tj\t_min_caml_start\n";
   List.iter (fun fundef -> h oc fundef) fundefs;
   Printf.fprintf oc "_min_caml_start: # main entry point\n";
   Printf.fprintf oc "\tadd\t%s, %s, r0\n" (reg reg_tmp) (reg reg_link);
