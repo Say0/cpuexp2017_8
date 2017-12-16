@@ -1,6 +1,7 @@
 	.text
 	.globl _min_caml_start
 	.align 2
+	j	_min_caml_start
 fib.10:
 	addi	r27, r0, 1
 	sub	r27, r2, r27
