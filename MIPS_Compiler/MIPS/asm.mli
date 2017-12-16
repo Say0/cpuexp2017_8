@@ -5,7 +5,7 @@ type t =
 and exp =
   | Nop
   | Li of int
-  | FLi of Id.l
+  | FLi of float(*Id.l*)
   | SetL of Id.l
   | Mr of Id.t
   | Neg of Id.t

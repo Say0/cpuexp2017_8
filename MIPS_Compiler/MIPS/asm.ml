@@ -7,7 +7,7 @@ type t = (* ̿����� (caml2html: sparcasm_t) *)
 and exp = (* ��İ�Ĥ�̿����б����뼰 (caml2html: sparcasm_exp) *)
   | Nop
   | Li of int
-  | FLi of Id.l
+  | FLi of float (*Id.l*)
   | SetL of Id.l
   | Mr of Id.t
   | Neg of Id.t

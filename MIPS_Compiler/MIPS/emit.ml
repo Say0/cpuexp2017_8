@@ -71,10 +71,17 @@ and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprim
       let r = reg x in
       Printf.fprintf oc "\tlui\t%s, %d\n" r n;
       Printf.fprintf oc "\tori\t%s, %s, %d\n" r r m
-  | NonTail(x), FLi(Id.L(l)) ->
+  | NonTail(x), FLi(d) ->
+      let intd = Int32.bits_of_float d in
+      let inth16 = Int32.shift_right_logical intd 16 in
+      let intl16 = Int32.shift_right_logical (Int32.shift_left intd 16) 16 in
+      Printf.fprintf oc "\tlui\t%s, %ld\n" (reg reg_tmp) inth16;
+      Printf.fprintf oc "\tori\t%s, %s, %ld\n" (reg reg_tmp) (reg reg_tmp) intl16;
+      Printf.fprintf oc "\tfmtc\t%s, %s\n" (reg reg_tmp) (reg x)
+  (*| NonTail(x), FLi(Id.L(l)) ->
       (*結局ここを変更すればいいだけだった*)
       let s = load_label (reg reg_tmp) l in
-      Printf.fprintf oc "%s\tflw\t%s, 0(%s)\n" s (reg x) (reg reg_tmp)
+      Printf.fprintf oc "%s\tflw\t%s, 0(%s)\n" s (reg x) (reg reg_tmp)*)
   | NonTail(x), SetL(Id.L(y)) ->
       let s = load_label x y in
       Printf.fprintf oc "%s" s
@@ -379,7 +386,7 @@ let h oc { name = Id.L(x); args = _; fargs = _; body = e; ret = _ } =
 
 let f oc (Prog(data, fundefs, e)) =
   Format.eprintf "generating assembly...@.";
-  if data <> [] then
+  (*if data <> [] then
     ((*Printf.fprintf oc "\t.data\n\t.literal8\n";*)
     Printf.fprintf oc "\t.data\n";
      List.iter
@@ -389,10 +396,10 @@ let f oc (Prog(data, fundefs, e)) =
          (*Printf.fprintf oc "\t.long\t%ld\n" (gethi d);*)
          (*Printf.fprintf oc "\t.long\t%ld\n" (getlo d))*)
          Printf.fprintf oc "\t.long\t%ld\n" (Int32.bits_of_float d))
-       data);
-  Printf.fprintf oc "\t.text\n";
+       data);*)
+  (*Printf.fprintf oc "\t.text\n";*)
   Printf.fprintf oc "\t.globl _min_caml_start\n";
-  Printf.fprintf oc "\t.align 2\n";
+  (*Printf.fprintf oc "\t.align 2\n";*)
   Printf.fprintf oc "\tj\t_min_caml_start\n";
   List.iter (fun fundef -> h oc fundef) fundefs;
   Printf.fprintf oc "_min_caml_start: # main entry point\n";
