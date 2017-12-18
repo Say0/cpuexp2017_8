@@ -37,6 +37,8 @@ Parsing.set_trace false
 %token PRINT_INT
 %token PRINT_FLOAT
 %token PRINT_CHAR
+%token READ_INT
+%token READ_FLOAT
 %token DOT
 %token LESS_MINUS
 %token SEMICOLON
@@ -54,7 +56,7 @@ Parsing.set_trace false
 %nonassoc prec_tuple
 %left COMMA
 %left EQUAL LESS_GREATER LESS GREATER LESS_EQUAL GREATER_EQUAL
-%left PRINT_INT PRINT_FLOAT PRINT_CHAR
+%left PRINT_INT PRINT_FLOAT PRINT_CHAR READ_INT READ_FLOAT
 %left PLUS MINUS PLUS_DOT MINUS_DOT
 %left AST SLASH AST_DOT SLASH_DOT
 %right prec_unary_minus
@@ -155,6 +157,10 @@ exp: /* (* 一般の式 (caml2html: parser_exp) *) */
     { Print_float($2) }
 | PRINT_CHAR simple_exp
     { Print_char($2) }
+| READ_INT simple_exp
+    { Read_int($2) }
+| READ_FLOAT simple_exp
+    { Read_float($2) }
 | error
     { failwith
         (Printf.sprintf "parse error near characters %d-%d on line %d"

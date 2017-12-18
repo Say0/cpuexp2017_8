@@ -29,4 +29,6 @@ type t = (* MinCamlの構文を表現するデータ型 (caml2html: syntax_t) *)
   | Print_int of t
   | Print_char of t
   | Print_float of t
+  | Read_int of t
+  | Read_float of t
 and fundef = { name : Id.t * Type.t; args : (Id.t * Type.t) list; body : t }

@@ -86,6 +86,10 @@ rule token = parse
     { PRINT_CHAR }
 | "print_float"
     { PRINT_FLOAT }
+| "read_int"
+    { READ_INT }
+| "read_float"
+    { READ_FLOAT }
 | '.'
     { DOT }
 | "<-"
