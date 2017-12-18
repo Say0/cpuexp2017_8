@@ -403,18 +403,19 @@ let f oc (Prog(data, fundefs, e)) =
   Printf.fprintf oc "\tj\t_min_caml_start\n";
   List.iter (fun fundef -> h oc fundef) fundefs;
   Printf.fprintf oc "_min_caml_start: # main entry point\n";
-  Printf.fprintf oc "\tadd\t%s, %s, r0\n" (reg reg_tmp) (reg reg_link);
+  (*Printf.fprintf oc "\tadd\t%s, %s, r0\n" (reg reg_tmp) (reg reg_link);
   Printf.fprintf oc "\tsw\t%s, -8(%s)\n" (reg reg_cl) (reg reg_sp);
   Printf.fprintf oc "\tsw\t%s, 8(%s)\n" (reg reg_tmp) (reg reg_sp);
-  Printf.fprintf oc "\tsw\t%s, -96(%s)\n" (reg reg_sp) (reg reg_sp);
+  Printf.fprintf oc "\tsw\t%s, -96(%s)\n" (reg reg_sp) (reg reg_sp);*)
   Printf.fprintf oc "#\tmain program starts\n";
   stackset := S.empty;
   stackmap := [];
   g oc (NonTail("_R_0"), e);
   Printf.fprintf oc "#\tmain program ends\n";
   (* Printf.fprintf oc "\tmr\tr3, %s\n" regs.(0); *)
-  Printf.fprintf oc "\tlw\t%s, 0(%s)\n" (reg reg_sp) (reg reg_sp);
+  (*Printf.fprintf oc "\tlw\t%s, 0(%s)\n" (reg reg_sp) (reg reg_sp);
   Printf.fprintf oc "\tlw\t%s, 8(%s)\n" (reg reg_tmp) (reg reg_sp);
   Printf.fprintf oc "\tadd\t%s, %s, r0\n" (reg reg_link) (reg reg_tmp);
-  Printf.fprintf oc "\tlw\t%s, -8(%s)\n" (reg reg_cl) (reg reg_sp);
-  Printf.fprintf oc "\tjr\t%s\n" (reg reg_link)
+  Printf.fprintf oc "\tlw\t%s, -8(%s)\n" (reg reg_cl) (reg reg_sp);*)
+  Printf.fprintf oc "_min_caml_end_loop: #when program finishes, processor repeatedly tries to do the same statement. (infinite jump).\n"
+  Printf.fprintf oc "\tj\t_min_caml_end_loop\n"

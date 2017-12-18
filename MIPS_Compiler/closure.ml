@@ -24,6 +24,8 @@ type t = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | LetTuple of (Id.t * Type.t) list * Id.t * t
   | Get of Id.t * Id.t
   | Put of Id.t * Id.t * Id.t
+  | Print_int of Id.t
+  | Print_float of Id.t
   | ExtArray of Id.l
 type fundef = { name : Id.l * Type.t;
                 args : (Id.t * Type.t) list;
@@ -43,6 +45,7 @@ let rec fv = function
   | AppDir(_, xs) | Tuple(xs) -> S.of_list xs
   | LetTuple(xts, y, e) -> S.add y (S.diff (fv e) (S.of_list (List.map fst xts)))
   | Put(x, y, z) -> S.of_list [x; y; z]
+  | Print_int(x) | Print_float(x) -> S.of_list [x]
 
 let toplevel : fundef list ref = ref []
 

@@ -24,6 +24,8 @@ type t =
   | LetTuple of (Id.t * Type.t) list * Id.t * t
   | Get of Id.t * Id.t
   | Put of Id.t * Id.t * Id.t
+  | Print_int of Id.t
+  | Print_float of Id.t
   | ExtArray of Id.l
 type fundef = { name : Id.l * Type.t;
                 args : (Id.t * Type.t) list;

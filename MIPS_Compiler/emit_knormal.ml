@@ -94,6 +94,14 @@ let rec emit_sub oc indents = function
       Printf.fprintf oc "%sExtFunApp %s\n" indents name;
       let indented = indents ^ "  " in
       List.iter (fun name2 -> Printf.fprintf oc "%s%s\n" indented name2) namelist
+  | Print_int(e1) ->
+      Printf.fprintf oc "%sPrint_Int\n" indents
+      let indented = indents ^ "  " in
+      emit_sub oc indented e1
+  | Print_float(e1) ->
+      Printf.fprintf oc "%sPrint_Float\n" indents
+      let indented = indents ^ "  " in
+      emit_sub oc indented e1 
 
 let  emit oc e =
   let indents = "" in

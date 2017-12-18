@@ -25,6 +25,8 @@ let rec eq_isvalid e =
   | LetTuple (_, _, e1) -> eq_isvalid e1
   | Get _ -> false
   | Put _ -> false
+  | Print_int -> false
+  | Print_float -> false
   | ExtArray _ -> false
   | ExtFunApp _ -> false
 
@@ -203,6 +205,14 @@ and eq_equals eqf e =
     (match e with
     | Put (y1, y2, y3) -> if (x1 = y1) && (x2 = y2) && (x3 = y3) then true else false
     | _ -> false)
+  | Print_int(x) ->
+    (match e with
+    | Print_int(y) -> if x = y then true else false
+    | _ -> false)
+  | Print_float(x) ->
+    (match e with
+    | Print_float(y) -> if x = y then true else false
+    | _ -> false)
   | ExtArray x ->
     (match e with
     | ExtArray y -> if x = y then true else false
@@ -275,6 +285,8 @@ let rec g eqs e =
   | LetTuple (ntlist, name, e1) -> LetTuple (ntlist, name, (g eqs e1))
   | Get (name, name2) -> Get (name, name2)
   | Put (name, name2, name3) -> Put (name, name2, name3)
+  | Print_int(e1) -> Print_int(e1)
+  | Print_flaot(e1) -> Print_float(e1)
   | ExtArray name -> ExtArray name
   | ExtFunApp (name, namelist) -> ExtFunApp (name, namelist)
 and deal_let e name2 eqs =
