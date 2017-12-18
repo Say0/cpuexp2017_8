@@ -395,7 +395,15 @@ let h oc { name = Id.L(x); args = _; fargs = _; body = e; ret = _ } =
   stackmap := [];
   g oc (Tail, e)
 
-let f oc (Prog(data, fundefs, e)) =
+  (*アセンブリ形式のライブラリ*)
+let rec include_asmlib oc ic =
+  match input_line ic with
+  | exception End_of_file -> ()
+  | s -> 
+      (Printf.fprintf oc "%s\n" s;
+       include_asmlib oc ic)
+
+let f oc ic (Prog(data, fundefs, e)) =
   Format.eprintf "generating assembly...@.";
   (*if data <> [] then
     ((*Printf.fprintf oc "\t.data\n\t.literal8\n";*)
@@ -411,8 +419,16 @@ let f oc (Prog(data, fundefs, e)) =
   (*Printf.fprintf oc "\t.text\n";*)
   Printf.fprintf oc "\t.globl _min_caml_start\n";
   (*Printf.fprintf oc "\t.align 2\n";*)
+  (*プログラムのスタート地点にジャンプ*)
+  Printf.fprintf oc "#\tJump to the start point\n";
   Printf.fprintf oc "\tj\t_min_caml_start\n";
+  (*アセンブリ形式のライブラリを挿入*)
+  Printf.fprintf oc "#\tAsmLibrary Inclusion\n";
+  include_asmlib oc ic;
+  (*関数の定義を羅列*)
+  Printf.fprintf oc "#\tFunction Definitions\n";
   List.iter (fun fundef -> h oc fundef) fundefs;
+  (*プログラムの開始*)
   Printf.fprintf oc "_min_caml_start: # main entry point\n";
   (*Printf.fprintf oc "\tadd\t%s, %s, r0\n" (reg reg_tmp) (reg reg_link);
   Printf.fprintf oc "\tsw\t%s, -8(%s)\n" (reg reg_cl) (reg reg_sp);

@@ -7,10 +7,10 @@ let rec iter n e = (* 最適化処理をくりかえす (caml2html: main_iter) *
   if e = e' then e else
   iter (n - 1) e'
 
-let lexbuf outchan outmiddlechan_first outmiddlechan_second outmiddlechan_third l glb = (* バッファをコンパイルしてチャンネルへ出力する (caml2html: main_lexbuf) *)
+let lexbuf outchan asmchan outmiddlechan_first outmiddlechan_second outmiddlechan_third l glb = (* バッファをコンパイルしてチャンネルへ出力する (caml2html: main_lexbuf) *)
   Id.counter := 0;
   Typing.extenv := M.empty;
-  Emit.f outchan
+  Emit.f outchan asmchan
     (RegAlloc.f
        (Simm.f
           (Virtual.f
@@ -26,24 +26,27 @@ let lexbuf outchan outmiddlechan_first outmiddlechan_second outmiddlechan_third 
                       Emit_knormal.emit outmiddlechan_third knormaledsec;
                       Alpha.f knormaledsec))))))
 
-let string s = lexbuf stdout stdout stdout stdout (Lexing.from_string s) (Lexing.from_string s)(* 文字列をコンパイルして標準出力に表示する (caml2html: main_string) *)
+let string s = lexbuf stdout stdin stdout stdout stdout (Lexing.from_string s) (Lexing.from_string s)(* 文字列をコンパイルして標準出力に表示する (caml2html: main_string) *)
 
 let file f = (* ファイルをコンパイルしてファイルに出力する (caml2html: main_file) *)
+  let filedir = Filename.dirname f in
   let inchan = open_in (f ^ ".ml") in
-  let inchanglb = open_in ((Filename.dirname f) ^ "/globals.ml") in
+  let inchanglb = open_in (filedir ^ "/globals.ml") in
+  let asmchan = open_in (filedir ^ "/mylibmincaml.s") in
   let outchan = open_out (f ^ ".s") in
   let outmiddlechan_first = open_out (f ^ ".midsyntax") in
   let outmiddlechan_second = open_out (f ^ ".midknormal") in
   let outmiddlechan_third = open_out (f ^ ".midknormals") in
   try
-    lexbuf outchan outmiddlechan_first outmiddlechan_second outmiddlechan_third (Lexing.from_channel inchan) (Lexing.from_channel inchanglb);
+    lexbuf outchan asmchan outmiddlechan_first outmiddlechan_second outmiddlechan_third (Lexing.from_channel inchan) (Lexing.from_channel inchanglb);
     close_in inchan;
     close_in inchanglb;
+    close_in asmchan;
     close_out outchan;
     close_out outmiddlechan_first;
     close_out outmiddlechan_second;
     close_out outmiddlechan_third
-  with e -> (close_in inchan; close_in inchanglb; close_out outchan; close_out outmiddlechan_first; close_out outmiddlechan_second; close_out outmiddlechan_third; raise e)
+  with e -> (close_in inchan; close_in inchanglb; close_in asmchan; close_out outchan; close_out outmiddlechan_first; close_out outmiddlechan_second; close_out outmiddlechan_third; raise e)
 
 let () = (* ここからコンパイラの実行が開始される (caml2html: main_entry) *)
   let files = ref [] in

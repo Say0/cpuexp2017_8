@@ -1,5 +1,9 @@
 	.globl _min_caml_start
+#	Jump to the start point
 	j	_min_caml_start
+#	AsmLibrary Inclusion
+y:
+#	Function Definitions
 _min_caml_start: # main entry point
 #	main program starts
 	addi	r2, r2, 4 #4
