@@ -64,7 +64,7 @@ let rec g oc = function (* 命令列のアセンブリ生成 (caml2html: emit_g)
 and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprime) *)
   (* 末尾でなかったら計算結果をdestにセット (caml2html: emit_nontail) *)
   | NonTail(_), Nop -> ()
-  | NonTail(x), Li(i) when -32768 <= i && i < 32768 -> Printf.fprintf oc "\taddi\t%s, %s, %d #%d\n" (reg x) (reg x) i i
+  | NonTail(x), Li(i) when -32768 <= i && i < 32768 -> Printf.fprintf oc "\taddi\t%s, r0, %d #%d\n" (reg x) i i
   | NonTail(x), Li(i) ->
       let n = i lsr 16 in
       let m = i lxor (n lsl 16) in
@@ -215,7 +215,7 @@ and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprim
       Printf.fprintf oc "\tsw\t%s, %d(%s)\n" (reg reg_tmp) (ss - 4) (reg reg_sp);
       Printf.fprintf oc "\taddi\t%s, %s, %d\n" (reg reg_sp) (reg reg_sp) ss;
       Printf.fprintf oc "\tlw\t%s, 0(%s)\n" (reg reg_tmp) (reg reg_cl);
-      Printf.fprintf oc "\tjalr\t%s\n" (reg reg_tmp);
+      Printf.fprintf oc "\tjalr\tr31, %s\n" (reg reg_tmp);
       (*Printf.fprintf oc "\tbctrl\n";*)
       Printf.fprintf oc "\taddi\t%s, %s, %d\n" (reg reg_sp) (reg reg_sp) (-ss);
       Printf.fprintf oc "\tlw\t%s, %d(%s)\n" (reg reg_tmp) (ss - 4) (reg reg_sp);

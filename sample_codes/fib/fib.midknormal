@@ -119,7 +119,6 @@ In
   }
   IN
   {
-    ExtFunApp print_int
-      Ti2
+    Print_Int Ti2
   }
 }
