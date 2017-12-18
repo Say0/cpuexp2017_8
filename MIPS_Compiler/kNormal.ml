@@ -25,6 +25,7 @@ type t = (* K正規化後の式 (caml2html: knormal_t) *)
   | Get of Id.t * Id.t
   | Put of Id.t * Id.t * Id.t
   | Print_int of Id.t
+  | Print_char of Id.t
   | Print_float of Id.t
   | ExtArray of Id.t
   | ExtFunApp of Id.t * Id.t list
@@ -43,7 +44,7 @@ let rec fv = function (* 式に出現する（自由な）変数 (caml2html: kno
   | App(x, ys) -> S.of_list (x :: ys)
   | Tuple(xs) | ExtFunApp(_, xs) -> S.of_list xs
   | Put(x, y, z) -> S.of_list [x; y; z]
-  | Print_int(x) | Print_float(x) -> S.of_list [x]
+  | Print_int(x) | Print_float(x) | Print_char(x) -> S.of_list [x]
   | LetTuple(xs, y, e) -> S.add y (S.diff (fv e) (S.of_list (List.map fst xs)))
 
 let insert_let (e, t) k = (* letを挿入する補助関数 (caml2html: knormal_insert) *)
@@ -190,11 +191,13 @@ let rec g env = function (* K正規化ルーチン本体 (caml2html: knormal_g) 
                 (fun z -> Put(x, y, z), Type.Unit)))
   | Syntax.Print_int(e1) ->
       insert_let (g env e1)
-        (fun x -> Print_int(x))
+        (fun x -> Print_int(x), Type.Unit)
+  | Syntax.Print_char(e1) ->
+      insert_let (g env e1)
+        (fun x -> Print_char(x), Type.Unit)
   | Syntax.Print_float(e1) ->
       insert_let (g env e1)
-        (fun x -> Print_float(x))
-  | Syntax.Print_float(e1) ->
+        (fun x -> Print_float(x), Type.Unit)
       
 
 let f e = fst (g M.empty e)

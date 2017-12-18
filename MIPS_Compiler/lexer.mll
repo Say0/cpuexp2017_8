@@ -82,6 +82,8 @@ rule token = parse
     { ARRAY_CREATE }
 | "print_int"
     { PRINT_INT }
+| "print_char"
+    { PRINT_CHAR }
 | "print_float"
     { PRINT_FLOAT }
 | '.'

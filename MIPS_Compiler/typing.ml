@@ -147,6 +147,9 @@ let rec g env e = (* 型推論ルーチン (caml2html: typing_g) *)
     | Print_int(e1) ->
         unify (g env e1) Type.Int;
         Type.Unit
+    | Print_char(e1) ->
+        unify (g env e1) Type.Int;
+        Type.Unit
     | Print_float(e1) ->
         unify (g env e1) Type.Float;
         Type.Unit

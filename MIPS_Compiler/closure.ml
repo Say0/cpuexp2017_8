@@ -25,6 +25,7 @@ type t = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | Get of Id.t * Id.t
   | Put of Id.t * Id.t * Id.t
   | Print_int of Id.t
+  | Print_char of Id.t
   | Print_float of Id.t
   | ExtArray of Id.l
 type fundef = { name : Id.l * Type.t;
@@ -45,7 +46,7 @@ let rec fv = function
   | AppDir(_, xs) | Tuple(xs) -> S.of_list xs
   | LetTuple(xts, y, e) -> S.add y (S.diff (fv e) (S.of_list (List.map fst xts)))
   | Put(x, y, z) -> S.of_list [x; y; z]
-  | Print_int(x) | Print_float(x) -> S.of_list [x]
+  | Print_int(x) | Print_float(x) | Print_char(x) -> S.of_list [x]
 
 let toplevel : fundef list ref = ref []
 
@@ -104,6 +105,9 @@ let rec g env known = function (* クロージャ変換ルーチン本体 (caml2
   | KNormal.LetTuple(xts, y, e) -> LetTuple(xts, y, g (M.add_list xts env) known e)
   | KNormal.Get(x, y) -> Get(x, y)
   | KNormal.Put(x, y, z) -> Put(x, y, z)
+  | KNormal.Print_int(x) -> Print_int(x)
+  | KNormal.Print_char(x) -> Print_char(x)
+  | KNormal.Print_float(x) -> Print_float(x)
   | KNormal.ExtArray(x) -> ExtArray(Id.L(x))
   | KNormal.ExtFunApp(x, ys) -> AppDir(Id.L("min_caml_" ^ x), ys)
 

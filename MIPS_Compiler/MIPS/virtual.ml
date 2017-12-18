@@ -142,6 +142,9 @@ let rec g env = function (* 式の仮想マシンコード生成 (caml2html: vir
           Let((offset, Type.Int), Slw(y, C(2)),
               Ans(Stw(z, x, V(offset))))
       | _ -> assert false)
+  | Closure.Print_int(x) -> Ans(Print_int(x))
+  | Closure.Print_char(x) -> Ans(Print_char(x))
+  | Closure.Print_float(x) -> Ans(Print_float(x))
   | Closure.ExtArray(Id.L(x)) -> Ans(SetL(Id.L("min_caml_" ^ x)))
 
 (* 関数の仮想マシンコード生成 (caml2html: virtual_h) *)

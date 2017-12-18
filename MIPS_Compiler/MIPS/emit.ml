@@ -64,18 +64,18 @@ let rec g oc = function (* 命令列のアセンブリ生成 (caml2html: emit_g)
 and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprime) *)
   (* 末尾でなかったら計算結果をdestにセット (caml2html: emit_nontail) *)
   | NonTail(_), Nop -> ()
-  | NonTail(x), Li(i) when -32768 <= i && i < 32768 -> Printf.fprintf oc "\taddi\t%s, %s, %d\n" (reg x) (reg x) i
+  | NonTail(x), Li(i) when -32768 <= i && i < 32768 -> Printf.fprintf oc "\taddi\t%s, %s, %d #%d\n" (reg x) (reg x) i i
   | NonTail(x), Li(i) ->
       let n = i lsr 16 in
       let m = i lxor (n lsl 16) in
       let r = reg x in
-      Printf.fprintf oc "\tlui\t%s, %d\n" r n;
+      Printf.fprintf oc "\tlui\t%s, %d #%d\n" r n i;
       Printf.fprintf oc "\tori\t%s, %s, %d\n" r r m
   | NonTail(x), FLi(d) ->
       let intd = Int32.bits_of_float d in
       let inth16 = Int32.shift_right_logical intd 16 in
       let intl16 = Int32.shift_right_logical (Int32.shift_left intd 16) 16 in
-      Printf.fprintf oc "\tlui\t%s, %ld\n" (reg reg_tmp) inth16;
+      Printf.fprintf oc "\tlui\t%s, %ld #%f\n" (reg reg_tmp) inth16 d;
       Printf.fprintf oc "\tori\t%s, %s, %ld\n" (reg reg_tmp) (reg reg_tmp) intl16;
       Printf.fprintf oc "\tfmtc\t%s, %s\n" (reg reg_tmp) (reg x)
   (*| NonTail(x), FLi(Id.L(l)) ->
@@ -112,6 +112,17 @@ and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprim
   | NonTail(_), Stfd(x, y, V(z)) -> Printf.fprintf oc "\tfsw\t%s, %s, 0(%s)\n" (reg x) (reg y) (reg z)
   | NonTail(_), Stfd(x, y, C(z)) -> Printf.fprintf oc "\tfsw\t%s, %d(%s)\n" (reg x) z (reg y)
   | NonTail(_), Comment(s) -> Printf.fprintf oc "#\t%s\n" s
+  (* print_intとかprint_floatとか *)
+  | NonTail(_), Print_int(x) -> Printf.fprintf oc "\toutw\t%s\n" (reg x)
+  | NonTail(_), Print_char(x) -> Printf.fprintf oc "\toutb\t%s\n" (reg x)
+  | NonTail(_), Print_float(x) ->
+      Printf.fprintf oc "\tfmfc\t%s, %s\n" (reg reg_tmp) (reg x);
+      Printf.fprintf oc "\toutw\t%s\n" (reg reg_tmp)
+  | Tail, Print_int(x) -> Printf.fprintf oc "\toutw\t%s\n" (reg x)
+  | Tail, Print_char(x) -> Printf.fprintf oc "\toutb\t%s\n" (reg x)
+  | Tail, Print_float(x) ->
+      Printf.fprintf oc "\tfmfc\t%s, %s\n" (reg reg_tmp) (reg x);
+      Printf.fprintf oc "\toutw\t%s\n" (reg reg_tmp)
   (* 退避の仮想命令の実装 (caml2html: emit_save) *)
   | NonTail(_), Save(x, y) when List.mem x allregs && not (S.mem y !stackset) ->
       save y;
@@ -417,5 +428,5 @@ let f oc (Prog(data, fundefs, e)) =
   Printf.fprintf oc "\tlw\t%s, 8(%s)\n" (reg reg_tmp) (reg reg_sp);
   Printf.fprintf oc "\tadd\t%s, %s, r0\n" (reg reg_link) (reg reg_tmp);
   Printf.fprintf oc "\tlw\t%s, -8(%s)\n" (reg reg_cl) (reg reg_sp);*)
-  Printf.fprintf oc "_min_caml_end_loop: #when program finishes, processor repeatedly tries to do the same statement. (infinite jump).\n"
+  Printf.fprintf oc "_min_caml_end_loop: #when program finishes, processor repeatedly tries to do the same statement. (infinite jump).\n";
   Printf.fprintf oc "\tj\t_min_caml_end_loop\n"
