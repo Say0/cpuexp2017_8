@@ -143,6 +143,8 @@ and g' dest cont regenv = function (* 各命令のレジスタ割り当て (caml
   | Print_int(x) -> (Ans(Print_int(find x Type.Int regenv)), regenv)
   | Print_char(x) -> (Ans(Print_char(find x Type.Int regenv)), regenv)
   | Print_float(x) -> (Ans(Print_float(find x Type.Float regenv)), regenv)
+  | Read_int(_) -> (Ans(Read_int), regenv)
+  | Read_float(_) -> (Ans(Read_float), regenv)
   | CallCls(x, ys, zs) as exp ->
       if List.length ys > Array.length regs - 2 || List.length zs > Array.length fregs - 1 then
         failwith (Format.sprintf "cannot allocate registers for arugments to %s" x)

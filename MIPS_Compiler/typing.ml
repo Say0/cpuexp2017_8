@@ -49,7 +49,10 @@ let rec deref_term = function
   | LetTuple(xts, e1, e2) -> LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2)
   | Array(e1, e2) -> Array(deref_term e1, deref_term e2)
   | Print_int(e1) -> Print_int(deref_term e1)
-  | Print_float(e2) -> Print_float(deref_term e2)
+  | Print_char(e1) -> Print_char(deref_term e1)
+  | Print_float(e1) -> Print_float(deref_term e1)
+  | Read_int(e1) -> Read_int(deref_term e1)
+  | Read_float(e1) -> Read_float(deref_term e1)
   | Get(e1, e2) -> Get(deref_term e1, deref_term e2)
   | Put(e1, e2, e3) -> Put(deref_term e1, deref_term e2, deref_term e3)
   | e -> e
@@ -153,6 +156,12 @@ let rec g env e = (* 型推論ルーチン (caml2html: typing_g) *)
     | Print_float(e1) ->
         unify (g env e1) Type.Float;
         Type.Unit
+    | Read_int(e1) ->
+        unify (g env e1) Type.Unit;
+        Type.Int
+    | Read_float(e1) ->
+        unify (g env e1) Type.Unit;
+        Type.Float
     | Get(e1, e2) ->
         let t = Type.gentyp () in
         unify (Type.Array(t)) (g env e1);

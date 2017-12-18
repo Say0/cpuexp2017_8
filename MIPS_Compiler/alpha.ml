@@ -45,6 +45,8 @@ let rec g env = function (* α変換ルーチン本体 (caml2html: alpha_g) *)
   | Print_int(x) -> Print_int(find x env)
   | Print_char(x) -> Print_char(find x env)
   | Print_float(x) -> Print_float(find x env)
+  | Read_int(x) -> Read_int(find x env)
+  | Read_float(x) -> Read_float(find x env)
   | ExtArray(x) -> ExtArray(x)
   | ExtFunApp(x, ys) -> ExtFunApp(x, List.map (fun y -> find y env) ys)
 

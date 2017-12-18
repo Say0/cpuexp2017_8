@@ -36,6 +36,8 @@ and exp = (* ��İ�Ĥ�̿����б����뼰 (caml2html: sparcas
   | Print_int of Id.t
   | Print_char of Id.t
   | Print_float of Id.t
+  | Read_int
+  | Read_float
   (* closure address, integer arguments, and float arguments *)
   | CallCls of Id.t * Id.t list * Id.t list
   | CallDir of Id.l * Id.t list * Id.t list
@@ -73,7 +75,7 @@ let rec remove_and_uniq xs = function
 (* free variables in the order of use (for spilling) (caml2html: sparcasm_fv) *)
 let fv_id_or_imm = function V(x) -> [x] | _ -> []
 let rec fv_exp = function
-  | Nop | Li(_) | FLi(_) | SetL(_) | Comment(_) | Restore(_) -> []
+  | Nop | Li(_) | FLi(_) | SetL(_) | Comment(_) | Restore(_) | Read_int | Read_float -> []
   | Mr(x) | Neg(x) | FMr(x) | FNeg(x) | Save(x, _) -> [x]
   | Add(x, y') | Sub(x, y') | Mul(x, y') | Div(x, y') |Slw(x, y') | Lfd(x, y') | Lwz(x, y') -> x :: fv_id_or_imm y'
   | Stw(x, y, z') | Stfd(x, y, z') -> x :: y :: fv_id_or_imm z'

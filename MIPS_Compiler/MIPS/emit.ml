@@ -123,6 +123,18 @@ and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprim
   | Tail, Print_float(x) ->
       Printf.fprintf oc "\tfmfc\t%s, %s\n" (reg reg_tmp) (reg x);
       Printf.fprintf oc "\toutw\t%s\n" (reg reg_tmp)
+  (* read hoge 系 *)
+  | NonTail(x), Read_int ->
+      Printf.fprintf oc "\tin\t%s\n" (reg x);
+  | NonTail(x), Read_float ->
+      Printf.fprintf oc "\tin\t%s\n" (reg reg_tmp);
+      Printf.fprintf oc "\tfmtc\t%s, %s" (reg reg_tmp) (reg x)
+  | Tail, (Read_int as exp)->
+      g' oc (NonTail(regs.(0)), exp);
+      Printf.fprintf oc "\tjr\t%s\n" (reg reg_link);
+  | Tail, (Read_float as exp)->
+      g' oc (NonTail(fregs.(0)), exp);
+      Printf.fprintf oc "\tjr\t%s\n" (reg reg_link);
   (* 退避の仮想命令の実装 (caml2html: emit_save) *)
   | NonTail(_), Save(x, y) when List.mem x allregs && not (S.mem y !stackset) ->
       save y;

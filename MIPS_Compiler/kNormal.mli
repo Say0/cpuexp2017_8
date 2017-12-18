@@ -25,6 +25,8 @@ type t =
   | Print_int of Id.t
   | Print_char of Id.t
   | Print_float of Id.t
+  | Read_int of Id.t
+  | Read_float of Id.t
   | ExtArray of Id.t
   | ExtFunApp of Id.t * Id.t list
 and fundef = { name : Id.t * Type.t; args : (Id.t * Type.t) list; body : t }

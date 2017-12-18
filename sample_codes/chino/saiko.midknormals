@@ -7,7 +7,7 @@ Let
 {
   Let
   (
-    Ti2
+    Ti3
     INT
   )
   {
@@ -17,7 +17,7 @@ Let
   {
     Let
     (
-      Ti3
+      Ti4
       INT
     )
     {
@@ -26,8 +26,8 @@ Let
     IN
     {
       ExtFunApp create_array
-        Ti2
         Ti3
+        Ti4
     }
   }
 }
@@ -42,7 +42,7 @@ IN
   {
     Let
     (
-      Ti4
+      Ti5
       INT
     )
     {
@@ -52,7 +52,7 @@ IN
     {
       Let
       (
-        Td5
+        Td6
         FLOAT
       )
       {
@@ -61,8 +61,8 @@ IN
       IN
       {
         ExtFunApp create_float_array
-          Ti4
-          Td5
+          Ti5
+          Td6
       }
     }
   }
@@ -90,26 +90,59 @@ IN
       {
         Let
         (
-          Tu1
-          UNIT
+          dd
+          INT
         )
         {
           Let
           (
-            Td6
-            FLOAT
+            Tu7
+            UNIT
           )
           {
-            FAdd z z
+            Unit
           }
           IN
           {
-            Print_Float Td6
+            Read_Int
           }
         }
         IN
         {
-          Print_Char gg
+          Let
+          (
+            Tu2
+            UNIT
+          )
+          {
+            Let
+            (
+              Td8
+              FLOAT
+            )
+            {
+              FAdd z z
+            }
+            IN
+            {
+              Print_Float Td8
+            }
+          }
+          IN
+          {
+            Let
+            (
+              Tu1
+              UNIT
+            )
+            {
+              Print_Char gg
+            }
+            IN
+            {
+              Print_Int dd
+            }
+          }
         }
       }
     }

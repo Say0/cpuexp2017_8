@@ -145,6 +145,8 @@ let rec g env = function (* 式の仮想マシンコード生成 (caml2html: vir
   | Closure.Print_int(x) -> Ans(Print_int(x))
   | Closure.Print_char(x) -> Ans(Print_char(x))
   | Closure.Print_float(x) -> Ans(Print_float(x))
+  | Closure.Read_int(x) -> Ans(Read_int)
+  | Closure.Read_float(x) -> Ans(Read_float)
   | Closure.ExtArray(Id.L(x)) -> Ans(SetL(Id.L("min_caml_" ^ x)))
 
 (* 関数の仮想マシンコード生成 (caml2html: virtual_h) *)

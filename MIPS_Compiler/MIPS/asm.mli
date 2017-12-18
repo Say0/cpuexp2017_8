@@ -34,6 +34,8 @@ and exp =
   | Print_int of Id.t
   | Print_char of Id.t
   | Print_float of Id.t
+  | Read_int
+  | Read_float
   (* closure address, integer arguments, and float arguments *)
   | CallCls of Id.t * Id.t list * Id.t list
   | CallDir of Id.l * Id.t list * Id.t list

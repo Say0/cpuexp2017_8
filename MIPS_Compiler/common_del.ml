@@ -28,6 +28,8 @@ let rec eq_isvalid e =
   | Print_int _ -> false
   | Print_char _ -> false
   | Print_float _ -> false
+  | Read_int _ -> false
+  | Read_float _ -> false
   | ExtArray _ -> false
   | ExtFunApp _ -> false
 
@@ -218,6 +220,14 @@ and eq_equals eqf e =
     (match e with
     | Print_float(y) -> if x = y then true else false
     | _ -> false)
+  | Read_int _ ->
+    (match e with
+    | Read_int _ -> true
+    | _ -> false)
+  | Read_float _ ->
+    (match e with
+    | Read_float _ -> true
+    | _ -> false) 
   | ExtArray x ->
     (match e with
     | ExtArray y -> if x = y then true else false
@@ -293,6 +303,8 @@ let rec g eqs e =
   | Print_int(e1) -> Print_int(e1)
   | Print_char(e1) -> Print_char(e1)
   | Print_float(e1) -> Print_float(e1)
+  | Read_int(e1) -> Read_int(e1)
+  | Read_float(e1) -> Read_float(e1)
   | ExtArray name -> ExtArray name
   | ExtFunApp (name, namelist) -> ExtFunApp (name, namelist)
 and deal_let e name2 eqs =

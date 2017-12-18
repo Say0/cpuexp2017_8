@@ -27,7 +27,14 @@ _min_caml_start: # main entry point
 	lw	r27, 0(r29)
 	add	r31, r27, r0
 	addi	r2, r2, 1 #1
+	in	r3
+	lui	r27, 16384 #2.000000
+	ori	r27, r27, 0
+	fmtc	r27, f1
+	fmfc	r27, f1
+	outw	r27
 	outb	r2
+	outw	r3
 #	main program ends
 _min_caml_end_loop: #when program finishes, processor repeatedly tries to do the same statement. (infinite jump).
 	j	_min_caml_end_loop

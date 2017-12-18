@@ -27,12 +27,14 @@ type t = (* K正規化後の式 (caml2html: knormal_t) *)
   | Print_int of Id.t
   | Print_char of Id.t
   | Print_float of Id.t
+  | Read_int of Id.t
+  | Read_float of Id.t
   | ExtArray of Id.t
   | ExtFunApp of Id.t * Id.t list
 and fundef = { name : Id.t * Type.t; args : (Id.t * Type.t) list; body : t }
 
 let rec fv = function (* 式に出現する（自由な）変数 (caml2html: knormal_fv) *)
-  | Unit | Int(_) | Float(_) | ExtArray(_) -> S.empty
+  | Unit | Int(_) | Float(_) | ExtArray(_) | Read_int(_) | Read_float(_) -> S.empty
   | Neg(x) | FNeg(x) -> S.singleton x
   | Add(x, y) | Sub(x, y) | Mul(x, y) | Div(x, y) | FAdd(x, y) | FSub(x, y) | FMul(x, y) | FDiv(x, y) | Get(x, y) -> S.of_list [x; y]
   | IfEq(x, y, e1, e2) | IfLE(x, y, e1, e2) -> S.add x (S.add y (S.union (fv e1) (fv e2)))
@@ -198,6 +200,12 @@ let rec g env = function (* K正規化ルーチン本体 (caml2html: knormal_g) 
   | Syntax.Print_float(e1) ->
       insert_let (g env e1)
         (fun x -> Print_float(x), Type.Unit)
+  | Syntax.Read_int(e1) ->
+      insert_let (g env e1)
+        (fun x -> Read_int(x), Type.Int)
+  | Syntax.Read_float(e1) ->
+      insert_let (g env e1)
+        (fun x -> Read_float(x), Type.Float)
       
 
 let f e = fst (g M.empty e)

@@ -104,7 +104,10 @@ let rec emit_sub oc indents = function
       Printf.fprintf oc "%sPrint_Float %s\n" indents e1
       (*let indented = indents ^ "  " in
       emit_sub oc indented e1*)
-
+  | Read_int(_) ->
+      Printf.fprintf oc "%sRead_Int\n" indents
+  | Read_float(_) ->
+      Printf.fprintf oc "%sRead_Float\n" indents
 let emit oc e =
   let indents = "" in
   emit_sub oc indents e
