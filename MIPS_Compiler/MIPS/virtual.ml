@@ -125,20 +125,28 @@ let rec g env = function (* 式の仮想マシンコード生成 (caml2html: vir
       (match M.find x env with
       | Type.Array(Type.Unit) -> Ans(Nop)
       | Type.Array(Type.Float) ->
-          Let((offset, Type.Int), Slw(y, C(3)),
-              Ans(Lfd(x, V(offset))))
-      | Type.Array(_) ->
+            (*Let((offset, Type.Int), Mr(y),
+              Ans(Lfd(x, V(offset))))*)
           Let((offset, Type.Int), Slw(y, C(2)),
-              Ans(Lwz(x, V(offset))))
+            Ans(Lfd(x, V(offset))))
+      | Type.Array(_) ->
+            (*Let((offset, Type.Int), Mr(y),
+              Ans(Lwz(x, V(offset))))*)
+          Let((offset, Type.Int), Slw(y, C(2)),
+            Ans(Lwz(x, V(offset))))
       | _ -> assert false)
   | Closure.Put(x, y, z) ->
       let offset = Id.genid "o" in
       (match M.find x env with
       | Type.Array(Type.Unit) -> Ans(Nop)
       | Type.Array(Type.Float) ->
-          Let((offset, Type.Int), Slw(y, C(3)),
-              Ans(Stfd(z, x, V(offset))))
+            (*Let((offset, Type.Int), Mr(y),
+              Ans(Stfd(z, x, V(offset))))*)
+          Let((offset, Type.Int), Slw(y, C(2)),
+            Ans(Stfd(z, x, V(offset))))
       | Type.Array(_) ->
+            (*Let((offset, Type.Int), Mr(y),
+              Ans(Stw(z, x, V(offset))))*)
           Let((offset, Type.Int), Slw(y, C(2)),
               Ans(Stw(z, x, V(offset))))
       | _ -> assert false)

@@ -7,7 +7,7 @@ Let
 {
   Let
   (
-    Ti3
+    Ti6
     INT
   )
   {
@@ -17,7 +17,7 @@ Let
   {
     Let
     (
-      Ti4
+      Ti7
       INT
     )
     {
@@ -26,8 +26,8 @@ Let
     IN
     {
       ExtFunApp create_array
-        Ti3
-        Ti4
+        Ti6
+        Ti7
     }
   }
 }
@@ -42,7 +42,7 @@ IN
   {
     Let
     (
-      Ti5
+      Ti8
       INT
     )
     {
@@ -52,7 +52,7 @@ IN
     {
       Let
       (
-        Td6
+        Td9
         FLOAT
       )
       {
@@ -61,8 +61,8 @@ IN
       IN
       {
         ExtFunApp create_float_array
-          Ti5
-          Td6
+          Ti8
+          Td9
       }
     }
   }
@@ -96,7 +96,7 @@ IN
         {
           Let
           (
-            Tu7
+            Tu10
             UNIT
           )
           {
@@ -111,36 +111,232 @@ IN
         {
           Let
           (
-            Tu2
-            UNIT
+            yu
+            TUPLE
+            (
+              INT
+              INT
+              INT
+            )
           )
           {
             Let
             (
-              Td8
-              FLOAT
+              Ti11
+              INT
             )
             {
-              FAdd z z
+               Var gg
             }
             IN
             {
-              Print_Float Td8
+              Let
+              (
+                Ti12
+                INT
+              )
+              {
+                Int 6
+              }
+              IN
+              {
+                Let
+                (
+                  Ti13
+                  INT
+                )
+                {
+                  Int 9
+                }
+                IN
+                {
+                  Tuple
+                    Ti11
+                    Ti12
+                    Ti13
+                }
+              }
             }
           }
           IN
           {
             Let
             (
-              Tu1
+              Tu5
               UNIT
             )
             {
-              Print_Char gg
+              ExtFunApp lm
+                yu
             }
             IN
             {
-              Print_Int dd
+              Let
+              (
+                Tu4
+                UNIT
+              )
+              {
+                Let
+                (
+                  Td14
+                  FLOAT
+                )
+                {
+                  FAdd z z
+                }
+                IN
+                {
+                  Print_Float Td14
+                }
+              }
+              IN
+              {
+                Let
+                (
+                  Tu3
+                  UNIT
+                )
+                {
+                  Print_Char gg
+                }
+                IN
+                {
+                  Let
+                  (
+                    Tu2
+                    UNIT
+                  )
+                  {
+                    Print_Int dd
+                  }
+                  IN
+                  {
+                    Let
+                    (
+                      Tu1
+                      UNIT
+                    )
+                    {
+                      Let
+                      (
+                        Ti19
+                        INT
+                      )
+                      {
+                        Let
+                        (
+                          Ti16
+                          INT
+                        )
+                        {
+                          Let
+                          (
+                            Ti15
+                            INT
+                          )
+                          {
+                             Var gg
+                          }
+                          IN
+                          {
+                            Get x Ti15
+                          }
+                        }
+                        IN
+                        {
+                          Let
+                          (
+                            Ti18
+                            INT
+                          )
+                          {
+                            Let
+                            (
+                              Ti17
+                              INT
+                            )
+                            {
+                              Int 2
+                            }
+                            IN
+                            {
+                              Get x Ti17
+                            }
+                          }
+                          IN
+                          {
+                            Add Ti16 Ti18
+                          }
+                        }
+                      }
+                      IN
+                      {
+                        Print_Int Ti19
+                      }
+                    }
+                    IN
+                    {
+                      Let
+                      (
+                        Td24
+                        FLOAT
+                      )
+                      {
+                        Let
+                        (
+                          Td21
+                          FLOAT
+                        )
+                        {
+                          Let
+                          (
+                            Ti20
+                            INT
+                          )
+                          {
+                             Var gg
+                          }
+                          IN
+                          {
+                            Get y Ti20
+                          }
+                        }
+                        IN
+                        {
+                          Let
+                          (
+                            Td23
+                            FLOAT
+                          )
+                          {
+                            Let
+                            (
+                              Ti22
+                              INT
+                            )
+                            {
+                              Int 2
+                            }
+                            IN
+                            {
+                              Get y Ti22
+                            }
+                          }
+                          IN
+                          {
+                            FAdd Td21 Td23
+                          }
+                        }
+                      }
+                      IN
+                      {
+                        Print_Float Td24
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
