@@ -54,9 +54,9 @@ let regs = (* Array.init 27 (fun i -> Printf.sprintf "_R_%d" i) *)
   [| "%r2"; "%r3"; "%r4"; "%r5"; "%r6"; "%r7"; "%r8"; "%r9"; "%r10";
      "%r11"; "%r12"; "%r13"; "%r14"; "%r15"; "%r16"; "%r17"; "%r18";
      "%r19"; "%r20"; "%r21"; "%r22"; "%r23"; "%r24"; "%r25"; "%r26"; |]
-let fregs = Array.init 30 (fun i -> Printf.sprintf "%%f%d" (i + 1)) (*f31はcondition register*)
+let fregs = Array.init 28 (fun i -> Printf.sprintf "%%f%d" (i + 1)) (*f31はcondition register*)
 let allregs = (Array.to_list regs) @ ["%r0"; "%r1"; "%r27"; "%r28"; "%r29"; "%r30"; "%r31"]
-let allfregs = Array.to_list fregs @ ["%f0"; "%f31"]
+let allfregs = Array.to_list fregs @ ["%f0"; "%f29"; "%f30"; "%f31"]
 let reg_cl = "%r28"(*regs.(Array.length regs - 1)*) (* closure address (caml2html: sparcasm_regcl) *)
 let reg_sw = "%r1"(*regs.(Array.length regs - 2)*) (* temporary for swap *)
 let reg_fsw = "%f0"(*fregs.(Array.length fregs - 1)*) (* temporary for swap *)
@@ -64,6 +64,8 @@ let reg_sp = "%r29" (* stack pointer *)
 let reg_hp = "%r30" (* heap pointer (caml2html: sparcasm_reghp) *)
 let reg_tmp = "%r27" (* [XX] ad hoc *)
 let reg_link = "%r31" (* link register *)
+let reg_pi = "%f29" (* 円周率が格納されている神のみぞ知るレジスタ *)
+let reg_onehalf = "%f30" (* 0.5が入っているだけの虚無レジスタ *)
 let is_reg x = (x.[0] = '%')
 
 (* super-tenuki *)

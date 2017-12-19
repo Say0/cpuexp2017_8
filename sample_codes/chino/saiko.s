@@ -1,8 +1,49 @@
 	.globl _min_caml_start
+	lui	r27, 16457 #3.141592
+	ori	r27, r27, 4056
+	fmtc	r27, f29
+	lui	r27, 16128 #0.500000
+	ori	r27, r27, 0
+	fmtc	r27, f30
 #	Jump to the start point
 	j	_min_caml_start
 #	AsmLibrary Inclusion
-y:
+#	create_array
+_min_caml_create_array:
+	add	r4, r2, r0
+	addi	r27, r0, 2
+	sll	r2, r2, r27
+	sub r30, r30, r2
+	add r2, r30, r0
+_min_caml_create_array_loop.1:
+	bgtz	r4, _min_caml_create_array_main.1
+	add	r2, r30, r0
+	jr	r31
+_min_caml_create_array_main.1:
+	sw	r3, 0(r2)
+	addi	r27, r0, 4
+	add	r2, r2, r27
+	addi	r27, r0, 1
+	sub	r4, r4, r27
+	j	min_caml_create_array_loop.1
+#	create_float_array
+_min_caml_create_float_array:
+	add	r4, r2, r0
+	addi	r27, r0, 2
+	sll	r2, r2, r27
+	sub r30, r30, r2
+	add r2, r30, r0
+_min_caml_create_float_array_loop.1:
+	bgtz	r4, _min_caml_create_float_array_main.1
+	add	r2, r30, r0
+	jr	r31
+_min_caml_create_float_array_main.1:
+	fsw	f1, 0(r2)
+	addi	r27, r0, 4
+	add	r2, r2, r27
+	addi	r27, r0, 1
+	sub	r4, r4, r27
+	j	min_caml_create_float_array_loop.1
 #	Function Definitions
 _min_caml_start: # main entry point
 #	main program starts
@@ -32,8 +73,8 @@ _min_caml_start: # main entry point
 	in	r4
 	addi	r5, r0, 6 #6
 	addi	r6, r0, 9 #9
+	addi	r30, r30, -12
 	add	r7, r30, r0
-	addi	r30, r30, 12
 	sw	r6, 8(r7)
 	sw	r5, 4(r7)
 	sw	r3, 0(r7)

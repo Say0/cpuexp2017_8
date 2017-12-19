@@ -75,7 +75,7 @@ and g' oc = function (* 各命令のアセンブリ生成 (caml2html: emit_gprim
       let intd = Int32.bits_of_float d in
       let inth16 = Int32.shift_right_logical intd 16 in
       let intl16 = Int32.shift_right_logical (Int32.shift_left intd 16) 16 in
-      Printf.fprintf oc "\tlui\t%s, %ld #%f\n" (reg reg_tmp) inth16 d;
+      Printf.fprintf oc "\tlui\t%s, %ld #%0.16f\n" (reg reg_tmp) inth16 d;
       Printf.fprintf oc "\tori\t%s, %s, %ld\n" (reg reg_tmp) (reg reg_tmp) intl16;
       Printf.fprintf oc "\tfmtc\t%s, %s\n" (reg reg_tmp) (reg x)
   (*| NonTail(x), FLi(Id.L(l)) ->
@@ -441,6 +441,10 @@ let f oc ic (Prog(data, fundefs, e)) =
   (*Printf.fprintf oc "\t.text\n";*)
   Printf.fprintf oc "\t.globl _min_caml_start\n";
   (*Printf.fprintf oc "\t.align 2\n";*)
+  (* 神のみぞ知る円周率が格納された虚無レジスタ *)
+  g oc (NonTail(reg_pi), Ans(FLi(3.141592)));
+  (* 0.5を格納するだけの虚無 *)
+  g oc (NonTail(reg_onehalf), Ans(FLi(0.5)));
   (*プログラムのスタート地点にジャンプ*)
   Printf.fprintf oc "#\tJump to the start point\n";
   Printf.fprintf oc "\tj\t_min_caml_start\n";

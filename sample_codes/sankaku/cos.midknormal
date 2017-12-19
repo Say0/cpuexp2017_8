@@ -1,0 +1,483 @@
+LetRec
+[ cos :
+  FUN
+  (
+    FLOAT
+  )
+    FLOAT
+]
+(
+  [ x :
+    FLOAT
+  ]
+)
+{
+  Let
+  (
+    Td31
+    FLOAT
+  )
+  {
+    Let
+    (
+      Td21
+      FLOAT
+    )
+    {
+      Let
+      (
+        Td13
+        FLOAT
+      )
+      {
+        Let
+        (
+          Td7
+          FLOAT
+        )
+        {
+          Let
+          (
+            Td3
+            FLOAT
+          )
+          {
+            Float 1.000000
+          }
+          IN
+          {
+            Let
+            (
+              Td6
+              FLOAT
+            )
+            {
+              Let
+              (
+                Td5
+                FLOAT
+              )
+              {
+                Let
+                (
+                  Td4
+                  FLOAT
+                )
+                {
+                  Float 0.500000
+                }
+                IN
+                {
+                  FMul Td4 x
+                }
+              }
+              IN
+              {
+                FMul Td5 x
+              }
+            }
+            IN
+            {
+              FSub Td3 Td6
+            }
+          }
+        }
+        IN
+        {
+          Let
+          (
+            Td12
+            FLOAT
+          )
+          {
+            Let
+            (
+              Td11
+              FLOAT
+            )
+            {
+              Let
+              (
+                Td10
+                FLOAT
+              )
+              {
+                Let
+                (
+                  Td9
+                  FLOAT
+                )
+                {
+                  Let
+                  (
+                    Td8
+                    FLOAT
+                  )
+                  {
+                    Float 0.041667
+                  }
+                  IN
+                  {
+                    FMul Td8 x
+                  }
+                }
+                IN
+                {
+                  FMul Td9 x
+                }
+              }
+              IN
+              {
+                FMul Td10 x
+              }
+            }
+            IN
+            {
+              FMul Td11 x
+            }
+          }
+          IN
+          {
+            FAdd Td7 Td12
+          }
+        }
+      }
+      IN
+      {
+        Let
+        (
+          Td20
+          FLOAT
+        )
+        {
+          Let
+          (
+            Td19
+            FLOAT
+          )
+          {
+            Let
+            (
+              Td18
+              FLOAT
+            )
+            {
+              Let
+              (
+                Td17
+                FLOAT
+              )
+              {
+                Let
+                (
+                  Td16
+                  FLOAT
+                )
+                {
+                  Let
+                  (
+                    Td15
+                    FLOAT
+                  )
+                  {
+                    Let
+                    (
+                      Td14
+                      FLOAT
+                    )
+                    {
+                      Float 0.001389
+                    }
+                    IN
+                    {
+                      FMul Td14 x
+                    }
+                  }
+                  IN
+                  {
+                    FMul Td15 x
+                  }
+                }
+                IN
+                {
+                  FMul Td16 x
+                }
+              }
+              IN
+              {
+                FMul Td17 x
+              }
+            }
+            IN
+            {
+              FMul Td18 x
+            }
+          }
+          IN
+          {
+            FMul Td19 x
+          }
+        }
+        IN
+        {
+          FSub Td13 Td20
+        }
+      }
+    }
+    IN
+    {
+      Let
+      (
+        Td30
+        FLOAT
+      )
+      {
+        Let
+        (
+          Td29
+          FLOAT
+        )
+        {
+          Let
+          (
+            Td28
+            FLOAT
+          )
+          {
+            Let
+            (
+              Td27
+              FLOAT
+            )
+            {
+              Let
+              (
+                Td26
+                FLOAT
+              )
+              {
+                Let
+                (
+                  Td25
+                  FLOAT
+                )
+                {
+                  Let
+                  (
+                    Td24
+                    FLOAT
+                  )
+                  {
+                    Let
+                    (
+                      Td23
+                      FLOAT
+                    )
+                    {
+                      Let
+                      (
+                        Td22
+                        FLOAT
+                      )
+                      {
+                        Float 0.000025
+                      }
+                      IN
+                      {
+                        FMul Td22 x
+                      }
+                    }
+                    IN
+                    {
+                      FMul Td23 x
+                    }
+                  }
+                  IN
+                  {
+                    FMul Td24 x
+                  }
+                }
+                IN
+                {
+                  FMul Td25 x
+                }
+              }
+              IN
+              {
+                FMul Td26 x
+              }
+            }
+            IN
+            {
+              FMul Td27 x
+            }
+          }
+          IN
+          {
+            FMul Td28 x
+          }
+        }
+        IN
+        {
+          FMul Td29 x
+        }
+      }
+      IN
+      {
+        FAdd Td21 Td30
+      }
+    }
+  }
+  IN
+  {
+    Let
+    (
+      Td42
+      FLOAT
+    )
+    {
+      Let
+      (
+        Td41
+        FLOAT
+      )
+      {
+        Let
+        (
+          Td40
+          FLOAT
+        )
+        {
+          Let
+          (
+            Td39
+            FLOAT
+          )
+          {
+            Let
+            (
+              Td38
+              FLOAT
+            )
+            {
+              Let
+              (
+                Td37
+                FLOAT
+              )
+              {
+                Let
+                (
+                  Td36
+                  FLOAT
+                )
+                {
+                  Let
+                  (
+                    Td35
+                    FLOAT
+                  )
+                  {
+                    Let
+                    (
+                      Td34
+                      FLOAT
+                    )
+                    {
+                      Let
+                      (
+                        Td33
+                        FLOAT
+                      )
+                      {
+                        Let
+                        (
+                          Td32
+                          FLOAT
+                        )
+                        {
+                          Float 0.000000
+                        }
+                        IN
+                        {
+                          FMul Td32 x
+                        }
+                      }
+                      IN
+                      {
+                        FMul Td33 x
+                      }
+                    }
+                    IN
+                    {
+                      FMul Td34 x
+                    }
+                  }
+                  IN
+                  {
+                    FMul Td35 x
+                  }
+                }
+                IN
+                {
+                  FMul Td36 x
+                }
+              }
+              IN
+              {
+                FMul Td37 x
+              }
+            }
+            IN
+            {
+              FMul Td38 x
+            }
+          }
+          IN
+          {
+            FMul Td39 x
+          }
+        }
+        IN
+        {
+          FMul Td40 x
+        }
+      }
+      IN
+      {
+        FMul Td41 x
+      }
+    }
+    IN
+    {
+      FSub Td31 Td42
+    }
+  }
+}
+In
+{
+  Let
+  (
+    Td2
+    FLOAT
+  )
+  {
+    Let
+    (
+      Td1
+      FLOAT
+    )
+    {
+      Float 0.500000
+    }
+    IN
+    {
+      App cos
+        Td1
+    }
+  }
+  IN
+  {
+    Print_Float Td2
+  }
+}
